@@ -33,8 +33,8 @@ namespace SimilarImages
             {
                 throw new DirectoryNotFoundException("Directory not found.");
             }
-            Debug.WriteLine($"Hash Algorithm: {hashEnum} Precision: {precision}\n" +
-                            $"Interpolation Mode: {interpolationMode} Threshold: {threshold}");
+            Debug.WriteLine($"Hash Algorithm: {hashEnum}\nPrecision: {precision}\n" +
+                            $"Interpolation Mode: {interpolationMode}\nThreshold: {threshold}");
 
             watch.Restart();
 
@@ -45,7 +45,7 @@ namespace SimilarImages
             // Get hashes
             var imageHashPairs = GetImageHashes(folderPath, hashEnum).ToArray();
             validImageCount = imageHashPairs.Length;
-            if (validImageCount == 0) { return null; }
+            if (validImageCount < 2) { return null; }
             watch.Stop();
             long hashTime = watch.ElapsedMilliseconds;
 
