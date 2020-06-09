@@ -117,518 +117,108 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cmb_Interpolation.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="btn_Open2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_Process.Location" type="System.Drawing.Point, System.Drawing">
-    <value>655, 9</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Algorithm:</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lb_Empty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lb_Resolution2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="lb_Empty.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;tb_Precision.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lb_Image1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_Directory.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8pt</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="pictureBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;btn_Delete2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lvw_Result.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tb_Precision.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmb_Interpolation.Items1" xml:space="preserve">
-    <value>NearestNeighbor</value>
-  </data>
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>142</value>
-  </data>
-  <data name="&gt;&gt;lvw_Result.Name" xml:space="preserve">
-    <value>lvw_Result</value>
-  </data>
-  <data name="tb_Precision.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 21</value>
-  </data>
-  <data name="cmb_Algorithm.Items2" xml:space="preserve">
-    <value>Perceptual</value>
-  </data>
-  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="panel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Image2.Name" xml:space="preserve">
-    <value>lb_Image2</value>
-  </data>
-  <data name="lb_Resolution2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Image2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lb_Image2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmb_Algorithm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 23</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 473</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="lb_Image2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="btn_Delete2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Image1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;cmb_Algorithm.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;tb_Directory.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 46</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmb_Algorithm.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
-    <value>columnHeader1</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete1.Name" xml:space="preserve">
-    <value>btn_Delete1</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Interpolation:</value>
-  </data>
-  <data name="btn_Open1.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="btn_Open1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Similar Images</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lb_Resolution2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 15</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="cmb_Interpolation.Items2" xml:space="preserve">
-    <value>HighQualityBilinear</value>
-  </data>
-  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btn_Process.Text" xml:space="preserve">
-    <value>Process</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="tb_Threshold.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="tb_Precision.Text" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.Name" xml:space="preserve">
-    <value>lb_Count</value>
-  </data>
-  <data name="lb_Image2.Text" xml:space="preserve">
-    <value>Image 2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>751, 606</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_Directory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panel3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>13, 10, 0, 7</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="tb_Threshold.Text" xml:space="preserve">
-    <value>0.8</value>
-  </data>
-  <data name="cmb_Interpolation.Items3" xml:space="preserve">
-    <value>HighQualityBicubic</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 15</value>
-  </data>
-  <data name="lb_Image1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;btn_Process.Name" xml:space="preserve">
-    <value>btn_Process</value>
-  </data>
-  <data name="&gt;&gt;lvw_Result.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lvw_Result.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="lb_Resolution2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 510</value>
-  </data>
-  <data name="cmb_Interpolation.Items" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="&gt;&gt;lb_Image1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lb_Count.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btn_Directory.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 46</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 15</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lb_Image2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 15</value>
-  </data>
-  <data name="lb_Image1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;btn_Directory.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="cmb_Algorithm.Items" xml:space="preserve">
-    <value>Difference</value>
-  </data>
-  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>441, 30</value>
-  </data>
-  <data name="&gt;&gt;btn_Directory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_Open1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 504</value>
-  </data>
-  <data name="btn_Open2.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lb_Empty.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="lb_Count.Text" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="btn_Delete1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_Process.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lvw_Result.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 10</value>
-  </data>
-  <data name="progressBar1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Valid images:</value>
-  </data>
-  <data name="lb_Image1.Text" xml:space="preserve">
-    <value>Image 1</value>
-  </data>
-  <data name="lvw_Result.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="panel2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lb_Count.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lb_Resolution1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.Name" xml:space="preserve">
-    <value>btn_Open1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 15</value>
-  </data>
-  <data name="progressBar1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lvw_Result.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 521</value>
-  </data>
-  <data name="lb_Resolution1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Image2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;tb_Directory.Name" xml:space="preserve">
-    <value>tb_Directory</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tb_Directory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>411, 21</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="btn_Delete1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 504</value>
-  </data>
-  <data name="pictureBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 68</value>
-  </data>
-  <data name="&gt;&gt;tb_Precision.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>61, 15</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Directory:</value>
+    <value>图片目录</value>
   </data>
-  <data name="btn_Delete1.Text" xml:space="preserve">
-    <value>Delete</value>
+  <data name="btn_Process.Text" xml:space="preserve">
+    <value>运行</value>
   </data>
-  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
-    <value>progressBar1</value>
+  <data name="cmb_Interpolation.Items" xml:space="preserve">
+    <value>默认 - 快</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 15</value>
+  <data name="cmb_Interpolation.Items1" xml:space="preserve">
+    <value>最邻近 - 快</value>
   </data>
-  <data name="btn_Open1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="cmb_Interpolation.Items2" xml:space="preserve">
+    <value>高质量双线性 - 慢</value>
   </data>
-  <data name="lb_Resolution1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 15</value>
+  <data name="cmb_Interpolation.Items3" xml:space="preserve">
+    <value>高质量双立方 - 慢</value>
   </data>
-  <data name="tb_Threshold.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 46</value>
   </data>
-  <data name="btn_Delete2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 538</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>采样插值模式</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Precision:</value>
-  </data>
-  <data name="btn_Delete2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 27</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lb_Empty.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="cmb_Algorithm.Items" xml:space="preserve">
+    <value>差值哈希</value>
   </data>
   <data name="cmb_Algorithm.Items1" xml:space="preserve">
-    <value>Mean</value>
+    <value>均值哈希</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="cmb_Algorithm.Items2" xml:space="preserve">
+    <value>感知哈希</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 46</value>
+  <data name="cmb_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>405, 41</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 15</value>
   </data>
-  <data name="&gt;&gt;cmb_Algorithm.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>采样哈希算法</value>
   </data>
-  <data name="lb_Resolution1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;cmb_Interpolation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 45</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
   </data>
-  <data name="btn_Directory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 21</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>相似度阈值</value>
   </data>
-  <data name="progressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
+    <value>578, 42</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>采样精度</value>
   </data>
-  <data name="btn_Delete1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>有效图片数：</value>
+  </data>
+  <data name="lb_Image1.Text" xml:space="preserve">
+    <value>图片 1</value>
+  </data>
+  <data name="lb_Image2.Text" xml:space="preserve">
+    <value>图片 2</value>
+  </data>
+  <data name="btn_Delete1.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="btn_Delete2.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="btn_Open2.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="btn_Open1.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="lb_Empty.Text" xml:space="preserve">
+    <value>空</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2515,454 +2105,4 @@
         AACR+QAAkfkAAIH5AACB+QAAwfkAAPH5AADwAQAA+AEAAP//AAA=
 </value>
   </data>
-  <data name="btn_Delete1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btn_Delete2.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="lb_Resolution2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lb_Empty.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15pt, style=Italic</value>
-  </data>
-  <data name="&gt;&gt;lb_Empty.Name" xml:space="preserve">
-    <value>lb_Empty</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
-  </data>
-  <data name="lb_Empty.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tb_Directory.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 68</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="tb_Directory.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 15</value>
-  </data>
-  <data name="btn_Directory.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;cmb_Interpolation.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>751, 68</value>
-  </data>
-  <data name="lb_Resolution1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 510</value>
-  </data>
-  <data name="cmb_Algorithm.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 15</value>
-  </data>
-  <data name="tb_Precision.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;lvw_Result.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="btn_Directory.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;btn_Open1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;tb_Precision.Name" xml:space="preserve">
-    <value>tb_Precision</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
-  </data>
-  <data name="lb_Resolution1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btn_Open2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="tb_Precision.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 43</value>
-  </data>
-  <data name="btn_Delete1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 27</value>
-  </data>
-  <data name="&gt;&gt;tb_Directory.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;btn_Process.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmb_Interpolation.Name" xml:space="preserve">
-    <value>cmb_Interpolation</value>
-  </data>
-  <data name="&gt;&gt;lvw_Result.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lb_Image1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 15</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 15</value>
-  </data>
-  <data name="tb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>560, 43</value>
-  </data>
-  <data name="lb_Empty.Text" xml:space="preserve">
-    <value>Empty</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 538</value>
-  </data>
-  <data name="btn_Delete1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btn_Open2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Name" xml:space="preserve">
-    <value>btn_Open2</value>
-  </data>
-  <data name="btn_Directory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>490, 12</value>
-  </data>
-  <data name="tb_Threshold.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;lb_Count.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="btn_Delete2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;cmb_Algorithm.Name" xml:space="preserve">
-    <value>cmb_Algorithm</value>
-  </data>
-  <data name="&gt;&gt;btn_Directory.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Threshold:</value>
-  </data>
-  <data name="lb_Image2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 486</value>
-  </data>
-  <data name="lb_Resolution2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btn_Delete2.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lb_Image1.Name" xml:space="preserve">
-    <value>lb_Image1</value>
-  </data>
-  <data name="btn_Open1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmb_Algorithm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 10</value>
-  </data>
-  <data name="lb_Empty.Size" type="System.Drawing.Size, System.Drawing">
-    <value>751, 531</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;btn_Process.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="btn_Open1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lb_Count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 15</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lb_Image2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_Directory.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_Directory.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lb_Empty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 75</value>
-  </data>
-  <data name="&gt;&gt;cmb_Interpolation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_Open1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 27</value>
-  </data>
-  <data name="&gt;&gt;bgw_Calculate.Name" xml:space="preserve">
-    <value>bgw_Calculate</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;bgw_Calculate.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lb_Count.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lb_Image2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Name" xml:space="preserve">
-    <value>lb_Resolution2</value>
-  </data>
-  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_Delete2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 504</value>
-  </data>
-  <data name="&gt;&gt;btn_Directory.Name" xml:space="preserve">
-    <value>btn_Directory</value>
-  </data>
-  <data name="&gt;&gt;tb_Threshold.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Name" xml:space="preserve">
-    <value>lb_Resolution1</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 10</value>
-  </data>
-  <data name="&gt;&gt;tb_Threshold.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="cmb_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 41</value>
-  </data>
-  <data name="&gt;&gt;tb_Threshold.Name" xml:space="preserve">
-    <value>tb_Threshold</value>
-  </data>
-  <data name="btn_Process.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 27</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="btn_Open2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 328</value>
-  </data>
-  <data name="btn_Open2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 504</value>
-  </data>
-  <data name="btn_Process.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
-  </data>
-  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 473</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lb_Count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>609, 15</value>
-  </data>
-  <data name="&gt;&gt;lb_Empty.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>522, 15</value>
-  </data>
-  <data name="cmb_Interpolation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 41</value>
-  </data>
-  <data name="tb_Directory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 12</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tb_Threshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 21</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_Precision.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="cmb_Interpolation.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_Threshold.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete2.Name" xml:space="preserve">
-    <value>btn_Delete2</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 46</value>
-  </data>
-  <data name="pictureBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;btn_Process.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Image1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lb_Empty.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_Process.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="cmb_Interpolation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 23</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="tb_Precision.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="lb_Image1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 486</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btn_Open2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 27</value>
-  </data>
-  <metadata name="bgw_Calculate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh-CN</value>
-  </metadata>
 </root>

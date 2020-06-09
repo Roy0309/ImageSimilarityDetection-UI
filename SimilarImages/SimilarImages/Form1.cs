@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace SimilarImages
         private ImageHash.HashEnum hashEnum = ImageHash.HashEnum.Difference;
         private InterpolationMode interpolationMode = InterpolationMode.Default;
         private List<Tuple<string, string, double>> tuples = null;
+        private readonly bool isSimplifiedChinese = CultureInfo.CurrentUICulture.Name == "zh-CN";
 
         public Form1()
         {
@@ -36,9 +38,11 @@ namespace SimilarImages
 
         private void btn_Directory_Click(object sender, EventArgs e)
         {
+            string description = "Choose a folder to find similar images.";
+            if (isSimplifiedChinese) { description = "选择一个文件夹来寻找相似的图片。"; }
             FolderBrowserDialog fbd = new FolderBrowserDialog
             {
-                Description = "Choose a folder to find similar images.",
+                Description = description,
                 ShowNewFolderButton = false
             };
             fbd.ShowDialog();
@@ -83,6 +87,55 @@ namespace SimilarImages
             }
         }
 
+        private void tb_Precision_Click(object sender, EventArgs e)
+        {
+            string tip = "Range: Greater than 8.\n" +
+             "Usage: When sampling, resize images to \"Precision * Precision\".\n" +
+             "Notice: Don't set it too large to run out of memory.";
+            if (isSimplifiedChinese)
+            {
+                tip = "范围：大于 8。\n" +
+                      "用途：采样时将图片缩放至 “精度 * 精度”。\n" +
+                      "注意：不要设置得太大以免耗尽内存。";
+            }
+            toolTip1.SetToolTip((Control)sender, tip);
+        }
+
+        private void cmb_Interpolation_Click(object sender, EventArgs e)
+        {
+            string tip = "The interpolation mode when resizing images";
+            if (isSimplifiedChinese)
+            {
+                tip = "图片缩放时的插值模式";
+            }
+            toolTip1.SetToolTip((Control)sender, tip);
+        }
+
+        private void cmb_Algorithm_Click(object sender, EventArgs e)
+        {
+            string tip = "The algorithm when calculating image hashes";
+            if (isSimplifiedChinese)
+            {
+                tip = "计算图片哈希时使用的算法";
+            }
+            toolTip1.SetToolTip((Control)sender, tip);
+        }
+
+        private void tb_Threshold_Click(object sender, EventArgs e)
+        {
+            string tip = "Range: 0-1.\n" +
+                         "Usage: Return results greater than the threshold.\n" +
+                         "Notice: Don't set a low threshold when processing mass images, " +
+                                 "as the operation will take too long.";
+            if (isSimplifiedChinese)
+            {
+                tip = "范围：0-1。\n" +
+                      "用途：返回大于阈值的结果。\n" +
+                      "注意：当图片数量较多时，不要使用低阈值，以免耗时太长。";
+            }
+            toolTip1.SetToolTip((Control)sender, tip);
+        }
+
         #endregion Config
 
         #region Process
@@ -93,10 +146,23 @@ namespace SimilarImages
             bool validThreshold = double.TryParse(tb_Threshold.Text, out threshold);
             bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text);
 
-            if (!AssertConfig(validPrecision, "Please input valid precision.")) { return; }
-            if (!AssertConfig(precision >= 8, "Precision should be greater than 8.")) { return; }
-            if (!AssertConfig(validThreshold,"Please input valid threshold [0,1).")) { return; }
-            if (!AssertConfig(validFolderPath, "Please input valid folder path.")) { return; }
+            string tip1 = "Please input valid precision.";
+            string tip2 = "Precision should be greater than 8.";
+            string tip3 = "Please input valid threshold (0,1).";
+            string tip4 = "Please input valid folder path.";
+            if (isSimplifiedChinese)
+            {
+                tip1 = "请输入合适的精度值。";
+                tip2 = "精度值需要大于 8。";
+                tip3 = "请输入合适的阈值 (0,1)。";
+                tip4 = "请输入合适的文件夹路径。";
+            }
+
+            if (!AssertConfig(validPrecision, tip1)) { return; }
+            if (!AssertConfig(precision >= 8, tip2)) { return; }
+            if (!AssertConfig(validThreshold, tip3)) { return; }
+            if (!AssertConfig(threshold > 0 && threshold < 1, tip3)) { return; }
+            if (!AssertConfig(validFolderPath, tip4)) { return; }
 
             progressBar1.Visible = true;
             lb_Empty.Visible = true;
@@ -108,7 +174,7 @@ namespace SimilarImages
         {
             if (!successCondition)
             {
-                MessageBox.Show(failureTip, "Notice", 
+                MessageBox.Show(failureTip, isSimplifiedChinese ? "提示" : "Notice",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             return successCondition;
