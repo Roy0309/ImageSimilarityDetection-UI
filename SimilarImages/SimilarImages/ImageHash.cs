@@ -43,28 +43,31 @@ namespace SimilarImages
             currentInterpolationMode = interpolationMode;
 
             // Get hashes
-            var imageHashPairs = GetImageHashes(folderPath, hashEnum).ToArray();
+            var imageHashPairs = GetImageHashes(folderPath, hashEnum);
             validImageCount = imageHashPairs.Length;
             if (validImageCount < 2) { return null; }
+
             watch.Stop();
             long hashTime = watch.ElapsedMilliseconds;
-
             watch.Restart();
+
+            // Compare hashes
             var tuples = new List<Tuple<string, string, double>>();
-            for (int i = 0; i < imageHashPairs.Length; i++)
+            Parallel.For(0, imageHashPairs.Length, i =>
             {
                 for (int j = imageHashPairs.Length - 1; j > i; j--)
                 {
-                    double hammingDistance = GetHammingDistancePercent(
+                    double percent = GetHammingDistancePercent(
                         imageHashPairs[i].Value, imageHashPairs[j].Value);
-                    if (hammingDistance > threshold)
+                    if (percent >= threshold)
                     {
                         var tuple = Tuple.Create(imageHashPairs[i].Key,
-                            imageHashPairs[j].Key, hammingDistance);
+                            imageHashPairs[j].Key, percent);
                         tuples.Add(tuple);
                     }
                 }
-            };
+            });
+
             watch.Stop();
             long compareTime = watch.ElapsedMilliseconds;
             Debug.WriteLine($"GetHash: {hashTime}ms; CompareHash: {compareTime}ms");
@@ -80,7 +83,7 @@ namespace SimilarImages
             Perceptual
         }
 
-        private static ConcurrentDictionary<string, string> GetImageHashes(string folderPath, HashEnum hashEnum)
+        private static KeyValuePair<string, string>[] GetImageHashes(string folderPath, HashEnum hashEnum)
         {
             // Get images
             DirectoryInfo di = new DirectoryInfo(folderPath);
@@ -93,13 +96,13 @@ namespace SimilarImages
             Func<string, string> hashMethod = null;
             switch (hashEnum)
             {
-                case HashEnum.Mean:
-                    hashMethod = (imageName) => 
-                        GetMeanHash(Path.Combine(folderPath, imageName));
-                    break;
                 case HashEnum.Difference:
                     hashMethod = (imageName) => 
                         GetDifferenceHash(Path.Combine(folderPath, imageName));
+                    break;
+                case HashEnum.Mean:
+                    hashMethod = (imageName) => 
+                        GetMeanHash(Path.Combine(folderPath, imageName));
                     break;
                 case HashEnum.Perceptual:
                     hashMethod = (imageName) => 
@@ -108,24 +111,23 @@ namespace SimilarImages
                 default: break;
             }
 
-            // Get hashes
-            var imageHashPair = new ConcurrentDictionary<string, string>();
-            List<Task> taskList = new List<Task>();
-            foreach (string imageName in imageNames)
-            {
-                taskList.Add(Task.Run(() =>
-                {
-                    string hash = hashMethod(imageName);
-                    if (!string.IsNullOrEmpty(hash))
-                    {
-                        imageHashPair.AddOrUpdate(imageName, hash, (k, v) => v = hash);
-                    }
-                }));
-            }
-            Task.WaitAll(taskList.ToArray());
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
 
-            Debug.WriteLine($"Valid count: {imageHashPair.Count}");
-            return imageHashPair;
+            // Get hashes
+            var imageHashPairs = new ConcurrentDictionary<string, string>();
+            Parallel.ForEach(imageNames, imageName =>
+            {
+                string hash = hashMethod(imageName);
+                if (!string.IsNullOrEmpty(hash))
+                {
+                    imageHashPairs.AddOrUpdate(imageName, hash, (k, v) => v = hash);
+                }
+            });
+
+            watch.Stop();
+            Debug.WriteLine($"Valid count: {imageHashPairs.Count} elapsed time: {watch.ElapsedMilliseconds}ms");
+            return imageHashPairs.ToArray();
         }
 
         private static string GetMeanHash(string filename)
@@ -229,6 +231,8 @@ namespace SimilarImages
             });
         }
 
+        #endregion Perceptual hash
+
         private static double[,] GetResizedGrayImageMatrix(string filename,
             int height, int width, out double grayMean)
         {
@@ -244,7 +248,6 @@ namespace SimilarImages
 
             watch.Stop();
             long originalBmpTime = watch.ElapsedMilliseconds;
-
             watch.Restart();
             long resizeImageTime = 0;
 
@@ -272,11 +275,11 @@ namespace SimilarImages
                 int length = Math.Abs(bd.Stride) * bmp.Height;
                 byte[] pixels = new byte[length];
                 Marshal.Copy(ptr, pixels, 0, length);
-                for (int i = 0; i < pixels.Length; i += 4)
+                for (int i = 0; i < pixels.Length; i += 4) // BGRA
                 {
-                    double gray = pixels[i + 1] * 0.30 +
-                                  pixels[i + 2] * 0.59 +
-                                  pixels[i + 3] * 0.11;
+                    double gray = pixels[i + 2] * 0.30 +
+                                  pixels[i + 1] * 0.59 +
+                                  pixels[i + 0] * 0.11;
                     int x = Math.DivRem(i / 4, height, out int y);
                     imageMatrix[x, y] = gray;
                     graySum += gray;
@@ -286,7 +289,7 @@ namespace SimilarImages
 
             watch.Stop();
             long imageMatrixTime = watch.ElapsedMilliseconds;
-            Debug.WriteLine($"Original: {originalBmpTime,3}ms; Resize: {resizeImageTime,3}ms; Matrix: {imageMatrixTime}ms");
+            //Debug.WriteLine($"Original: {originalBmpTime,3}ms; Resize: {resizeImageTime,3}ms; Matrix: {imageMatrixTime}ms");
 
             originalBmp.Dispose();
 
@@ -295,8 +298,6 @@ namespace SimilarImages
 
             return imageMatrix;
         }
-
-        #endregion Perceptual hash
 
         private static double GetHammingDistancePercent(string hash1, string hash2)
         {
