@@ -187,6 +187,9 @@
   <data name="tb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
     <value>578, 42</value>
   </data>
+  <data name="tb_Threshold.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 21</value>
+  </data>
   <data name="label5.Text" xml:space="preserve">
     <value>采样精度</value>
   </data>

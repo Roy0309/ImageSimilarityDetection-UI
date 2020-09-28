@@ -16,7 +16,7 @@ namespace SimilarImages
     {
         private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         private int precision = 20;
-        private double threshold = 0.8;
+        private int threshold = 80;
         private ImageHash.HashEnum hashEnum = ImageHash.HashEnum.Difference;
         private InterpolationMode interpolationMode = InterpolationMode.Default;
         private List<Tuple<string, string, double>> tuples = null;
@@ -60,14 +60,9 @@ namespace SimilarImages
 
         private void tb_Threshold_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Allow 0-9, backspace and '.'
-            if ((e.KeyChar < '0' || e.KeyChar > '9') &&
-                e.KeyChar != '\b' && e.KeyChar != '.')
+            // Allow 0-9, backspace
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
             { e.Handled = true; }
-            // Only one '.'
-            if (tb_Threshold.Text.Contains('.') && e.KeyChar == '.') { e.Handled = true; }
-            // '.' can only come after '0'
-            if (tb_Threshold.Text == "0" && e.KeyChar != '.') { e.Handled = true; }
         }
 
         private void cmb_Algorithm_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,13 +118,13 @@ namespace SimilarImages
 
         private void tb_Threshold_Click(object sender, EventArgs e)
         {
-            string tip = "Range: 0-1.\n" +
+            string tip = "Range: 0-99%.\n" +
                          "Usage: Return results greater than the threshold.\n" +
                          "Notice: Don't set a low threshold when processing mass images, " +
                                  "as the operation will take too long.";
             if (isSimplifiedChinese)
             {
-                tip = "范围：0-1。\n" +
+                tip = "范围：0-99%。\n" +
                       "用途：返回大于阈值的结果。\n" +
                       "注意：当图片数量较多时，不要使用低阈值，以免耗时太长。";
             }
@@ -143,25 +138,25 @@ namespace SimilarImages
         private void btn_Process_Click(object sender, EventArgs e)
         {
             bool validPrecision = int.TryParse(tb_Precision.Text, out precision);
-            bool validThreshold = double.TryParse(tb_Threshold.Text, out threshold);
-            bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text);
+            bool validThreshold = int.TryParse(tb_Threshold.Text, out threshold);
+            bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text) && Directory.Exists(tb_Directory.Text);
 
             string tip1 = "Please input valid precision.";
             string tip2 = "Precision should be greater than 8.";
-            string tip3 = "Please input valid threshold (0,1).";
+            string tip3 = "Please input valid threshold (0,99).";
             string tip4 = "Please input valid folder path.";
             if (isSimplifiedChinese)
             {
                 tip1 = "请输入合适的精度值。";
                 tip2 = "精度值需要大于 8。";
-                tip3 = "请输入合适的阈值 (0,1)。";
+                tip3 = "请输入合适的阈值 (0,99)。";
                 tip4 = "请输入合适的文件夹路径。";
             }
 
-            if (!AssertConfig(validPrecision, tip1)) { return; }
-            if (!AssertConfig(precision >= 8, tip2)) { return; }
-            if (!AssertConfig(validThreshold, tip3)) { return; }
-            if (!AssertConfig(threshold > 0 && threshold < 1, tip3)) { return; }
+            if (!AssertConfig(validPrecision, tip1)) { tb_Precision.Text = "20"; return; }
+            if (!AssertConfig(precision >= 8, tip2)) { tb_Precision.Text = "20"; return; }
+            if (!AssertConfig(validThreshold, tip3)) { tb_Threshold.Text = "80"; return; }
+            if (!AssertConfig(threshold > 0 && threshold < 100, tip3)) { tb_Threshold.Text = "80"; return; }
             if (!AssertConfig(validFolderPath, tip4)) { return; }
 
             progressBar1.Visible = true;
@@ -249,6 +244,18 @@ namespace SimilarImages
                 pictureBox2.Image = null;
                 lb_Image2.Text = "Deleted";
                 lb_Resolution2.Text = "";
+            }
+
+            if (pictureBox1.Image.Width * pictureBox1.Image.Height >= 
+                pictureBox2.Image.Width * pictureBox2.Image.Height)
+            {
+                lb_Resolution1.ForeColor = Color.Green;
+                lb_Resolution2.ForeColor = Color.Black;
+            }
+            else
+            {
+                lb_Resolution1.ForeColor = Color.Black;
+                lb_Resolution2.ForeColor = Color.Green;
             }
         }
 

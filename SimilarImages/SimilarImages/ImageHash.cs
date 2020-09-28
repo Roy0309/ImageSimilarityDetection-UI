@@ -21,20 +21,20 @@ namespace SimilarImages
 
         public static List<Tuple<string, string, double>> GetSimilarity(
             string folderPath, out int validImageCount, int precision, 
-            InterpolationMode interpolationMode, HashEnum hashEnum, double threshold)
+            InterpolationMode interpolationMode, HashEnum hashEnum, int threshold)
         {
             Stopwatch watch = new Stopwatch();
 
-            if (threshold < 0 || threshold >= 1)
+            if (threshold < 0 || threshold >= 100)
             {
-                throw new ArgumentOutOfRangeException("Threshold should be [0,1);");
+                throw new ArgumentOutOfRangeException("Threshold should be [0,100);");
             }
             if (!Directory.Exists(folderPath))
             {
                 throw new DirectoryNotFoundException("Directory not found.");
             }
             Debug.WriteLine($"Hash Algorithm: {hashEnum}\nPrecision: {precision}\n" +
-                            $"Interpolation Mode: {interpolationMode}\nThreshold: {threshold}");
+                            $"Interpolation Mode: {interpolationMode}\nThreshold: {threshold}%");
 
             watch.Restart();
 
@@ -59,7 +59,7 @@ namespace SimilarImages
                 {
                     double percent = GetHammingDistancePercent(
                         imageHashPairs[i].Value, imageHashPairs[j].Value);
-                    if (percent >= threshold)
+                    if (percent >= (double)threshold / 100)
                     {
                         var tuple = Tuple.Create(imageHashPairs[i].Key,
                             imageHashPairs[j].Key, percent);
