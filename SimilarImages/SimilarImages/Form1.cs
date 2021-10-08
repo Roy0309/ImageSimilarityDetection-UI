@@ -51,6 +51,29 @@ namespace SimilarImages
             folderPath = fbd.SelectedPath;
         }
 
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                tb_Directory.Text = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                folderPath = tb_Directory.Text;
+            }
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                if (Directory.Exists(path))
+                {
+                    e.Effect = DragDropEffects.Copy;
+                    return;
+                }
+            }
+            e.Effect = DragDropEffects.None;
+        }
+
         private void tb_Precision_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Alow 0-9 and backspace
