@@ -15,7 +15,7 @@ namespace SimilarImages
 {
     internal class ImageHash
     {
-        private static readonly string[] imageExtensions = new string[] { ".png", ".jpg", ".jpeg" };
+        private static readonly string[] imageExtensions = new string[] { ".png", ".jpg", ".jpeg", ".bmp" };
         private static int currentPrecision = 20;
         private static InterpolationMode currentInterpolationMode;
 
