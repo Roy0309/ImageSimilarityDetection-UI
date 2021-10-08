@@ -203,7 +203,14 @@ namespace SimilarImages
                 lvw_Result.Items.Add($"Result {i + 1} - {tuples[i].Item3:P1}");
             }
             lvw_Result.EndUpdate();
-            lvw_Result.Items[0].Selected = true;
+            if (lvw_Result.Items.Count > 0)
+            {
+                lvw_Result.Items[0].Selected = true;
+            }
+            else
+            {
+                lvw_Result.Items.Add("No result");
+            }
             lvw_Result.Select();
         }
 
@@ -213,7 +220,9 @@ namespace SimilarImages
 
         private void lvw_Result_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvw_Result.SelectedItems.Count < 1) { return; }
+            if (lvw_Result.SelectedItems.Count < 1 ||
+                lvw_Result.SelectedItems[0].Text == "No result")
+            { return; }
 
             // Dispose previous images
             pictureBox1.Image?.Dispose();
