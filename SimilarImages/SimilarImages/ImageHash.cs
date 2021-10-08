@@ -44,8 +44,8 @@ namespace SimilarImages
 
             // Get hashes
             var imageHashPairs = GetImageHashes(folderPath, hashEnum);
-            validImageCount = imageHashPairs.Length;
-            if (validImageCount < 2) { return null; }
+            validImageCount = imageHashPairs == null ? 0 : imageHashPairs.Length;
+            if (imageHashPairs == null) { return null; }
 
             watch.Stop();
             long hashTime = watch.ElapsedMilliseconds;
@@ -91,6 +91,7 @@ namespace SimilarImages
                              where imageExtensions.Contains(file.Extension)
                              select file.Name;
             Debug.WriteLine($"Directory: {folderPath}\nImage count: {imageNames.Count()}");
+            if (imageNames.Count() < 2) { return null; }
 
             // Get hash algorithm
             Func<string, string> hashMethod = null;

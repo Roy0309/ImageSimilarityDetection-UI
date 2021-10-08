@@ -27,6 +27,11 @@ namespace SimilarImages
             InitializeComponent();
         }
 
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            pnl_Image1.Width = pnl_Main.Width / 2;
+        }
+
         #region Config
 
         private void Form1_Load(object sender, EventArgs e)
@@ -183,7 +188,6 @@ namespace SimilarImages
             if (!AssertConfig(validFolderPath, tip4)) { return; }
 
             progressBar1.Visible = true;
-            lb_Empty.Visible = true;
             btn_Process.Enabled = false;
             bgw_Calculate.RunWorkerAsync();
         }
@@ -216,8 +220,11 @@ namespace SimilarImages
             lvw_Result.Items.Clear();
             progressBar1.Visible = false;
             btn_Process.Enabled = true;
-            if (tuples != null) { lb_Empty.Visible = false; }
-            else { lb_Empty.Visible = true; return; }
+            if (tuples == null)
+            {
+                lvw_Result.Items.Add("No result");
+                return;
+            }
 
             // Generate result list
             lvw_Result.BeginUpdate();
@@ -229,10 +236,6 @@ namespace SimilarImages
             if (lvw_Result.Items.Count > 0)
             {
                 lvw_Result.Items[0].Selected = true;
-            }
-            else
-            {
-                lvw_Result.Items.Add("No result");
             }
             lvw_Result.Select();
         }

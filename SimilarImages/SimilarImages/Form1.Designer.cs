@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Directory = new System.Windows.Forms.TextBox();
             this.btn_Directory = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_Config = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Process = new System.Windows.Forms.Button();
             this.cmb_Interpolation = new System.Windows.Forms.ComboBox();
@@ -54,22 +54,25 @@
             this.lb_Image2 = new System.Windows.Forms.Label();
             this.btn_Delete1 = new System.Windows.Forms.Button();
             this.btn_Delete2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnl_Main = new System.Windows.Forms.Panel();
             this.btn_Open2 = new System.Windows.Forms.Button();
             this.btn_Open1 = new System.Windows.Forms.Button();
             this.lb_Resolution2 = new System.Windows.Forms.Label();
             this.lb_Resolution1 = new System.Windows.Forms.Label();
             this.bgw_Calculate = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lb_Empty = new System.Windows.Forms.Label();
+            this.pnl_List = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1.SuspendLayout();
+            this.pnl_Image1 = new System.Windows.Forms.Panel();
+            this.pnl_Image2 = new System.Windows.Forms.Panel();
+            this.pnl_Config.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnl_Main.SuspendLayout();
+            this.pnl_List.SuspendLayout();
+            this.pnl_Image1.SuspendLayout();
+            this.pnl_Image2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,26 +95,27 @@
             this.btn_Directory.UseVisualStyleBackColor = false;
             this.btn_Directory.Click += new System.EventHandler(this.btn_Directory_Click);
             // 
-            // panel1
+            // pnl_Config
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btn_Process);
-            this.panel1.Controls.Add(this.cmb_Interpolation);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cmb_Algorithm);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.tb_Threshold);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tb_Precision);
-            this.panel1.Controls.Add(this.lb_Count);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btn_Directory);
-            this.panel1.Controls.Add(this.tb_Directory);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.pnl_Config.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_Config.Controls.Add(this.progressBar1);
+            this.pnl_Config.Controls.Add(this.label3);
+            this.pnl_Config.Controls.Add(this.btn_Process);
+            this.pnl_Config.Controls.Add(this.cmb_Interpolation);
+            this.pnl_Config.Controls.Add(this.label2);
+            this.pnl_Config.Controls.Add(this.cmb_Algorithm);
+            this.pnl_Config.Controls.Add(this.label7);
+            this.pnl_Config.Controls.Add(this.label6);
+            this.pnl_Config.Controls.Add(this.tb_Threshold);
+            this.pnl_Config.Controls.Add(this.label5);
+            this.pnl_Config.Controls.Add(this.tb_Precision);
+            this.pnl_Config.Controls.Add(this.lb_Count);
+            this.pnl_Config.Controls.Add(this.label4);
+            this.pnl_Config.Controls.Add(this.label1);
+            this.pnl_Config.Controls.Add(this.btn_Directory);
+            this.pnl_Config.Controls.Add(this.tb_Directory);
+            resources.ApplyResources(this.pnl_Config, "pnl_Config");
+            this.pnl_Config.Name = "pnl_Config";
             // 
             // label3
             // 
@@ -265,21 +269,15 @@
             this.btn_Delete2.UseVisualStyleBackColor = false;
             this.btn_Delete2.Click += new System.EventHandler(this.btn_Delete2_Click);
             // 
-            // panel2
+            // pnl_Main
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Window;
-            this.panel2.Controls.Add(this.btn_Open2);
-            this.panel2.Controls.Add(this.btn_Open1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.lb_Image1);
-            this.panel2.Controls.Add(this.btn_Delete2);
-            this.panel2.Controls.Add(this.lb_Resolution2);
-            this.panel2.Controls.Add(this.lb_Resolution1);
-            this.panel2.Controls.Add(this.lb_Image2);
-            this.panel2.Controls.Add(this.btn_Delete1);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
+            this.pnl_Main.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_Main.Controls.Add(this.pnl_Image2);
+            this.pnl_Main.Controls.Add(this.pnl_Image1);
+            this.pnl_Main.Controls.Add(this.lb_Resolution2);
+            this.pnl_Main.Controls.Add(this.lb_Resolution1);
+            resources.ApplyResources(this.pnl_Main, "pnl_Main");
+            this.pnl_Main.Name = "pnl_Main";
             // 
             // btn_Open2
             // 
@@ -325,18 +323,12 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.Value = 60;
             // 
-            // panel3
+            // pnl_List
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Window;
-            this.panel3.Controls.Add(this.lvw_Result);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // lb_Empty
-            // 
-            this.lb_Empty.BackColor = System.Drawing.SystemColors.MenuBar;
-            resources.ApplyResources(this.lb_Empty, "lb_Empty");
-            this.lb_Empty.Name = "lb_Empty";
+            this.pnl_List.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_List.Controls.Add(this.lvw_Result);
+            resources.ApplyResources(this.pnl_List, "pnl_List");
+            this.pnl_List.Name = "pnl_List";
             // 
             // toolTip1
             // 
@@ -347,28 +339,45 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "提示信息";
             // 
+            // pnl_Image1
+            // 
+            this.pnl_Image1.Controls.Add(this.pictureBox1);
+            this.pnl_Image1.Controls.Add(this.btn_Open1);
+            this.pnl_Image1.Controls.Add(this.btn_Delete1);
+            this.pnl_Image1.Controls.Add(this.lb_Image1);
+            resources.ApplyResources(this.pnl_Image1, "pnl_Image1");
+            this.pnl_Image1.Name = "pnl_Image1";
+            // 
+            // pnl_Image2
+            // 
+            this.pnl_Image2.Controls.Add(this.lb_Image2);
+            this.pnl_Image2.Controls.Add(this.btn_Open2);
+            this.pnl_Image2.Controls.Add(this.pictureBox2);
+            this.pnl_Image2.Controls.Add(this.btn_Delete2);
+            resources.ApplyResources(this.pnl_Image2, "pnl_Image2");
+            this.pnl_Image2.Name = "pnl_Image2";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.lb_Empty);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            this.Controls.Add(this.pnl_Main);
+            this.Controls.Add(this.pnl_List);
+            this.Controls.Add(this.pnl_Config);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnl_Config.ResumeLayout(false);
+            this.pnl_Config.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.pnl_Main.ResumeLayout(false);
+            this.pnl_List.ResumeLayout(false);
+            this.pnl_Image1.ResumeLayout(false);
+            this.pnl_Image2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -377,7 +386,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_Directory;
         private System.Windows.Forms.Button btn_Directory;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_Config;
         private System.Windows.Forms.ListView lvw_Result;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -385,7 +394,7 @@
         private System.Windows.Forms.Label lb_Image2;
         private System.Windows.Forms.Button btn_Delete1;
         private System.Windows.Forms.Button btn_Delete2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_Main;
         private System.Windows.Forms.Label lb_Count;
         private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker bgw_Calculate;
@@ -398,8 +407,7 @@
         private System.Windows.Forms.TextBox tb_Precision;
         internal System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lb_Empty;
+        private System.Windows.Forms.Panel pnl_List;
         private System.Windows.Forms.Button btn_Open2;
         private System.Windows.Forms.Button btn_Open1;
         private System.Windows.Forms.Label lb_Resolution2;
@@ -409,6 +417,8 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Panel pnl_Image1;
+        private System.Windows.Forms.Panel pnl_Image2;
     }
 }
 
