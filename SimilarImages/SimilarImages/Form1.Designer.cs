@@ -64,6 +64,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lb_Empty = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -235,12 +236,14 @@
             resources.ApplyResources(this.lb_Image1, "lb_Image1");
             this.lb_Image1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lb_Image1.Name = "lb_Image1";
+            this.lb_Image1.MouseHover += new System.EventHandler(this.lb_Image1_MouseHover);
             // 
             // lb_Image2
             // 
             resources.ApplyResources(this.lb_Image2, "lb_Image2");
             this.lb_Image2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lb_Image2.Name = "lb_Image2";
+            this.lb_Image2.MouseHover += new System.EventHandler(this.lb_Image2_MouseHover);
             // 
             // btn_Delete1
             // 
@@ -405,6 +408,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 

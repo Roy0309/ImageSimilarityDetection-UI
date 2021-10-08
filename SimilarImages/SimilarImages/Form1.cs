@@ -257,24 +257,28 @@ namespace SimilarImages
             {
                 pictureBox1.Image = new Bitmap(Path.Combine(folderPath, selectedTuple.Item1));
                 lb_Image1.Text = selectedTuple.Item1;
+                lb_Image1.Tag = Path.Combine(folderPath, selectedTuple.Item1);
                 lb_Resolution1.Text = $"{pictureBox1.Image.Width}*{pictureBox1.Image.Height}";
             }
             catch (ArgumentException)
             {
                 pictureBox1.Image = null;
                 lb_Image1.Text = "Deleted";
+                lb_Image1.Tag = null;
                 lb_Resolution1.Text = "";
             }
             try
             {
                 pictureBox2.Image = new Bitmap(Path.Combine(folderPath, selectedTuple.Item2));
                 lb_Image2.Text = selectedTuple.Item2;
+                lb_Image2.Tag = Path.Combine(folderPath, selectedTuple.Item2);
                 lb_Resolution2.Text = $"{pictureBox2.Image.Width}*{pictureBox2.Image.Height}";
             }
             catch (ArgumentException)
             {
                 pictureBox2.Image = null;
                 lb_Image2.Text = "Deleted";
+                lb_Image2.Tag = null;
                 lb_Resolution2.Text = "";
             }
 
@@ -327,6 +331,22 @@ namespace SimilarImages
         {
             if (pictureBox2.Image == null) { return; }
             Process.Start(Path.Combine(folderPath, lb_Image2.Text));
+        }
+
+        private void lb_Image1_MouseHover(object sender, EventArgs e)
+        {
+            if (lb_Image1.Tag != null)
+            {
+                toolTip2.SetToolTip((Control)sender, lb_Image1.Tag.ToString());
+            }
+        }
+
+        private void lb_Image2_MouseHover(object sender, EventArgs e)
+        {
+            if (lb_Image1.Tag != null)
+            {
+                toolTip2.SetToolTip((Control)sender, lb_Image2.Tag.ToString());
+            }
         }
 
         #endregion Comparison
