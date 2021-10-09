@@ -49,14 +49,8 @@ namespace SimilarImages
                 var pairs = GetImageHashes(folderPath, hashEnum);
                 if (pairs != null)
                 {
-                    if (imageHashPairs == null)
-                    {
-                        imageHashPairs = pairs;
-                    }
-                    else
-                    {
-                        imageHashPairs.Union(pairs);
-                    }
+                    imageHashPairs = imageHashPairs == null ? pairs : 
+                        imageHashPairs.Union(pairs).ToArray();
                 }
             }
             
