@@ -25,6 +25,7 @@ namespace SimilarImages
         public Form1()
         {
             InitializeComponent();
+            toolTip1.ToolTipTitle = isSimplifiedChinese ? "帮助" : "Help";
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -79,13 +80,6 @@ namespace SimilarImages
             e.Effect = DragDropEffects.None;
         }
 
-        private void tb_Precision_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Alow 0-9 and backspace
-            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
-            { e.Handled = true; }
-        }
-
         private void tb_Threshold_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow 0-9, backspace
@@ -110,51 +104,63 @@ namespace SimilarImages
             }
         }
 
-        private void tb_Precision_Click(object sender, EventArgs e)
+        private void tkb_Precision_ValueChanged(object sender, EventArgs e)
         {
-            string tip = "Range: Greater than 8.\n" +
-             "Usage: When sampling, resize images to \"Precision * Precision\".\n" +
-             "Notice: Don't set it too large to run out of memory.";
+            toolTip2.SetToolTip((Control)sender, tkb_Precision.Value.ToString());
+        }
+
+        private void tkb_Precision_MouseHover(object sender, EventArgs e)
+        {
+            string tip = "Current Value: " + tkb_Precision.Value + "\n" +
+                         "Usage: When sampling, resize images to \"Precision * Precision\".\n" +
+                         "Notice: Don't set it too large to run out of memory.\n";
             if (isSimplifiedChinese)
             {
-                tip = "范围：大于 8。\n" +
+                tip = "当前值：" + tkb_Precision.Value + "\n" + 
                       "用途：采样时将图片缩放至 “精度 * 精度”。\n" +
-                      "注意：不要设置得太大以免耗尽内存。";
+                      "注意：不要设置得太大以免耗尽内存。\n";
             }
             toolTip1.SetToolTip((Control)sender, tip);
         }
 
-        private void cmb_Interpolation_Click(object sender, EventArgs e)
+        private void cmb_Interpolation_MouseHover(object sender, EventArgs e)
         {
-            string tip = "The interpolation mode when resizing images";
+            string tip = "The interpolation mode when resizing images.";
             if (isSimplifiedChinese)
             {
-                tip = "图片缩放时的插值模式";
+                tip = "图片缩放时的插值模式。";
             }
             toolTip1.SetToolTip((Control)sender, tip);
         }
 
-        private void cmb_Algorithm_Click(object sender, EventArgs e)
+        private void cmb_Algorithm_MouseHover(object sender, EventArgs e)
         {
-            string tip = "The algorithm when calculating image hashes";
+            string tip = "The algorithm when calculating image hashes.";
             if (isSimplifiedChinese)
             {
-                tip = "计算图片哈希时使用的算法";
+                tip = "计算图片哈希时使用的算法。";
             }
             toolTip1.SetToolTip((Control)sender, tip);
         }
 
-        private void tb_Threshold_Click(object sender, EventArgs e)
+        private void tkb_Threshold_ValueChanged(object sender, EventArgs e)
         {
-            string tip = "Range: 0-99%.\n" +
+            toolTip2.SetToolTip((Control)sender, $"{tkb_Threshold.Value}%");
+        }
+
+        private void tkb_Threshold_MouseHover(object sender, EventArgs e)
+        {
+            string tip = "Current Value: " + tkb_Threshold.Value + "%\n" +
+                         "Range: 0-99%.\n" +
                          "Usage: Return results greater than the threshold.\n" +
                          "Notice: Don't set a low threshold when processing mass images, " +
-                                 "as the operation will take too long.";
+                         "as the operation will take too long.";
             if (isSimplifiedChinese)
             {
-                tip = "范围：0-99%。\n" +
+                tip = "当前值：" + tkb_Threshold.Value + "%\n" + 
+                      "范围：0-99%。\n" +
                       "用途：返回大于阈值的结果。\n" +
-                      "注意：当图片数量较多时，不要使用低阈值，以免耗时太长。";
+                      "注意：当图片数量较多时，不要使用低阈值，以免耗时太长。\n";
             }
             toolTip1.SetToolTip((Control)sender, tip);
         }
@@ -165,28 +171,20 @@ namespace SimilarImages
 
         private void btn_Process_Click(object sender, EventArgs e)
         {
-            bool validPrecision = int.TryParse(tb_Precision.Text, out precision);
-            bool validThreshold = int.TryParse(tb_Threshold.Text, out threshold);
-            bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text) && Directory.Exists(tb_Directory.Text);
+            // Check config
+            precision = tkb_Precision.Value;
+            threshold = tkb_Threshold.Value;
 
-            string tip1 = "Please input valid precision.";
-            string tip2 = "Precision should be greater than 8.";
-            string tip3 = "Please input valid threshold (0,99).";
-            string tip4 = "Please input valid folder path.";
+            bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text) && 
+                                   Directory.Exists(tb_Directory.Text);
+            string tip = "Please input valid folder path.";
             if (isSimplifiedChinese)
             {
-                tip1 = "请输入合适的精度值。";
-                tip2 = "精度值需要大于 8。";
-                tip3 = "请输入合适的阈值 (0,99)。";
-                tip4 = "请输入合适的文件夹路径。";
+                tip = "请输入合适的文件夹路径。";
             }
+            if (!AssertConfig(validFolderPath, tip)) { return; }
 
-            if (!AssertConfig(validPrecision, tip1)) { tb_Precision.Text = "20"; return; }
-            if (!AssertConfig(precision >= 8, tip2)) { tb_Precision.Text = "20"; return; }
-            if (!AssertConfig(validThreshold, tip3)) { tb_Threshold.Text = "80"; return; }
-            if (!AssertConfig(threshold > 0 && threshold < 100, tip3)) { tb_Threshold.Text = "80"; return; }
-            if (!AssertConfig(validFolderPath, tip4)) { return; }
-
+            // Process
             progressBar1.Visible = true;
             btn_Process.Enabled = false;
             bgw_Calculate.RunWorkerAsync();

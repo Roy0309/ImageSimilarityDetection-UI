@@ -117,106 +117,199 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Directory.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Directory.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Directory.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Directory.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="progressBar1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="progressBar1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label3.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Process.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Process.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmb_Interpolation.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmb_Interpolation.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmb_Algorithm.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmb_Algorithm.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label7.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label6.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Threshold.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Threshold.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label5.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Precision.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tb_Precision.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Count.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Count.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label4.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Config.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Config.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lvw_Result.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lvw_Result.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pictureBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pictureBox1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pictureBox2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pictureBox2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Image1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Image1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Image2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Image2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Delete1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Delete1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Delete2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Delete2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Open2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Open2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Image2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Image2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Open1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btn_Open1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Image1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Image1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Resolution2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Resolution2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Resolution1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lb_Resolution1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Main.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_Main.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_List.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnl_List.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 15</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>图片目录</value>
-  </data>
-  <data name="tkb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>577, 41</value>
-  </data>
-  <data name="btn_Process.Text" xml:space="preserve">
-    <value>运行</value>
-  </data>
-  <data name="cmb_Interpolation.Items" xml:space="preserve">
-    <value>默认 - 快</value>
-  </data>
-  <data name="cmb_Interpolation.Items1" xml:space="preserve">
-    <value>最邻近 - 快</value>
-  </data>
-  <data name="cmb_Interpolation.Items2" xml:space="preserve">
-    <value>高质量双线性 - 慢</value>
-  </data>
-  <data name="cmb_Interpolation.Items3" xml:space="preserve">
-    <value>高质量双立方 - 慢</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 46</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 15</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>采样插值模式</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="cmb_Algorithm.Items" xml:space="preserve">
-    <value>差值哈希</value>
-  </data>
-  <data name="cmb_Algorithm.Items1" xml:space="preserve">
-    <value>均值哈希</value>
-  </data>
-  <data name="cmb_Algorithm.Items2" xml:space="preserve">
-    <value>感知哈希</value>
-  </data>
-  <data name="cmb_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 41</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 15</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>采样哈希算法</value>
-  </data>
-  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>508, 45</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 15</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>相似度阈值</value>
-  </data>
-  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>采样精度</value>
-  </data>
-  <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 15</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>有效图片数：</value>
-  </data>
-  <data name="lb_Image1.Text" xml:space="preserve">
-    <value>图片 1</value>
-  </data>
-  <data name="lb_Image2.Text" xml:space="preserve">
-    <value>图片 2</value>
-  </data>
-  <data name="btn_Delete1.Text" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="btn_Delete2.Text" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="btn_Open2.Text" xml:space="preserve">
-    <value>打开</value>
-  </data>
-  <data name="btn_Open1.Text" xml:space="preserve">
-    <value>打开</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIABYMwAAZgAAAICAAAABACAAKAgBAL4zAABAQAAAAQAgAChCAADmOwEAMDAAAAEA
@@ -2101,5 +2194,11 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AACAHwAAgA8AAJ/PAACYAwAAkAEAAJH5
         AACR+QAAkfkAAIH5AACB+QAAwfkAAPH5AADwAQAA+AEAAP//AAA=
 </value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ToolTip1" xml:space="preserve">
+    <value />
   </data>
 </root>
