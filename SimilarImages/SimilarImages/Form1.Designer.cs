@@ -83,15 +83,18 @@
             // 
             // tb_Directory
             // 
+            this.tb_Directory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.tb_Directory, "tb_Directory");
             this.tb_Directory.Name = "tb_Directory";
             this.tb_Directory.ReadOnly = true;
+            this.tb_Directory.TabStop = false;
             // 
             // btn_Clear
             // 
             this.btn_Clear.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btn_Clear.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_Clear.BackgroundImage = global::SimilarImages.Properties.Resources.delete;
             resources.ApplyResources(this.btn_Clear, "btn_Clear");
+            this.btn_Clear.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.UseVisualStyleBackColor = false;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);

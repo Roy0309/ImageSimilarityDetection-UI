@@ -20,12 +20,12 @@ namespace SimilarImages
 
         private List<string> folderPathes = new List<string>();
         private List<Tuple<string, string, double>> tuples = null;
-        private readonly bool isSimplifiedChinese = CultureInfo.CurrentUICulture.Name == "zh-CN";
 
         public Form1()
         {
+            CultureInfo.CurrentUICulture = new CultureInfo("zh-CN");
             InitializeComponent();
-            toolTip1.ToolTipTitle = isSimplifiedChinese ? "帮助" : "Help";
+            toolTip1.ToolTipTitle = Message.Help;
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -41,13 +41,13 @@ namespace SimilarImages
             tkb_Threshold.Value = 80;
             cmb_Algorithm.SelectedIndex = 0;
             cmb_Interpolation.SelectedIndex = 0;
-            tb_Directory.Text = null;
+            tb_Directory.Text = Message.DragHere;
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             folderPathes.Clear();
-            tb_Directory.Text = null;
+            tb_Directory.Text = Message.DragHere;
             ClearResult();
         }
 
@@ -67,9 +67,7 @@ namespace SimilarImages
             }
 
             e.Effect = DragDropEffects.None;
-            MessageBox.Show(
-                isSimplifiedChinese ? "仅支持文件夹。" : "Support folder(s) only.", 
-                isSimplifiedChinese ? "提示" : "Notice",
+            MessageBox.Show(Message.FolderOnly, Message.Notice,
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
@@ -89,16 +87,8 @@ namespace SimilarImages
 
         private void tkb_Precision_MouseHover(object sender, EventArgs e)
         {
-            string tip = "Current Value: " + tkb_Precision.Value + "\n" +
-                         "Usage: When sampling, resize images to \"Precision * Precision\".\n" +
-                         "Notice: Don't set it too large to run out of memory.\n";
-            if (isSimplifiedChinese)
-            {
-                tip = "当前值：" + tkb_Precision.Value + "\n" + 
-                      "用途：采样时将图片缩放至 “精度 * 精度”。\n" +
-                      "注意：不要设置得太大以免耗尽内存。\n";
-            }
-            toolTip1.SetToolTip((Control)sender, tip);
+            toolTip1.SetToolTip((Control)sender, 
+                Message.CurrentValue + tkb_Precision.Value + Message.PresionHelp);
         }
 
         private void cmb_Interpolation_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,12 +105,7 @@ namespace SimilarImages
 
         private void cmb_Interpolation_MouseHover(object sender, EventArgs e)
         {
-            string tip = "The interpolation mode when resizing images.";
-            if (isSimplifiedChinese)
-            {
-                tip = "图片缩放时的插值模式。";
-            }
-            toolTip1.SetToolTip((Control)sender, tip);
+            toolTip1.SetToolTip((Control)sender, Message.InterpolationHelp);
         }
 
         private void cmb_Algorithm_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,12 +115,7 @@ namespace SimilarImages
 
         private void cmb_Algorithm_MouseHover(object sender, EventArgs e)
         {
-            string tip = "The algorithm when calculating image hashes.";
-            if (isSimplifiedChinese)
-            {
-                tip = "计算图片哈希时使用的算法。";
-            }
-            toolTip1.SetToolTip((Control)sender, tip);
+            toolTip1.SetToolTip((Control)sender, Message.AlgorithmHelp);
         }
 
         private void tkb_Threshold_ValueChanged(object sender, EventArgs e)
@@ -145,19 +125,8 @@ namespace SimilarImages
 
         private void tkb_Threshold_MouseHover(object sender, EventArgs e)
         {
-            string tip = "Current Value: " + tkb_Threshold.Value + "%\n" +
-                         "Range: 0-99%.\n" +
-                         "Usage: Return results greater than the threshold.\n" +
-                         "Notice: Don't set a low threshold when processing mass images, " +
-                         "as the operation will take too long.";
-            if (isSimplifiedChinese)
-            {
-                tip = "当前值：" + tkb_Threshold.Value + "%\n" + 
-                      "范围：0-99%。\n" +
-                      "用途：返回大于阈值的结果。\n" +
-                      "注意：当图片数量较多时，不要使用低阈值，以免耗时太长。\n";
-            }
-            toolTip1.SetToolTip((Control)sender, tip);
+            toolTip1.SetToolTip((Control)sender, 
+                Message.CurrentValue + tkb_Threshold.Value + Message.ThresholdHelp);
         }
 
         #endregion Config
@@ -169,12 +138,15 @@ namespace SimilarImages
             // Check config
             precision = tkb_Precision.Value;
             threshold = tkb_Threshold.Value;
-            if (folderPathes.Count == 0 ||
-                !folderPathes.TrueForAll((path) => Directory.Exists(path)))
+            if (folderPathes.Count == 0)
             {
-                MessageBox.Show(
-                    isSimplifiedChinese ? "文件夹不存在。" : "Directory does not exist.", 
-                    isSimplifiedChinese ? "提示" : "Notice",
+                MessageBox.Show(Message.NoFolder, Message.Notice,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (!folderPathes.TrueForAll((path) => Directory.Exists(path)))
+            {
+                MessageBox.Show(Message.FolderNotExist, Message.Notice,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -193,12 +165,12 @@ namespace SimilarImages
             lvw_Result.Items.Clear();
             pictureBox1.Image?.Dispose();
             pictureBox1.Image = null;
-            lb_Image1.Text = isSimplifiedChinese ? "图片 1" : "Image 1";
+            lb_Image1.Text = Message.Image1;
             lb_Image1.Tag = null;
             lb_Resolution1.Text = null;
             pictureBox2.Image?.Dispose();
             pictureBox2.Image = null;
-            lb_Image2.Text = isSimplifiedChinese ? "图片 2" : "Image 2";
+            lb_Image2.Text = Message.Image2;
             lb_Image2.Tag = null;
             lb_Resolution2.Text = null;
         }
@@ -223,7 +195,7 @@ namespace SimilarImages
             btn_Process.Enabled = true;
             if (tuples == null || tuples.Count == 0)
             {
-                lvw_Result.Items.Add("No result");
+                lvw_Result.Items.Add(Message.NoResult);
                 return;
             }
 
@@ -231,7 +203,7 @@ namespace SimilarImages
             lvw_Result.BeginUpdate();
             for (int i = 0; i < tuples.Count; i++)
             {
-                lvw_Result.Items.Add($"Result {i + 1} - {tuples[i].Item3:P1}");
+                lvw_Result.Items.Add($"{Message.Result} {i + 1} - {tuples[i].Item3:P1}");
             }
             lvw_Result.EndUpdate();
             if (lvw_Result.Items.Count > 0)
@@ -248,7 +220,7 @@ namespace SimilarImages
         private void lvw_Result_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvw_Result.SelectedItems.Count < 1 ||
-                lvw_Result.SelectedItems[0].Text == "No result")
+                lvw_Result.SelectedItems[0].Text == Message.NoResult)
             { return; }
 
             // Dispose previous images
@@ -267,7 +239,7 @@ namespace SimilarImages
             catch (ArgumentException)
             {
                 pictureBox1.Image = null;
-                lb_Image1.Text = "Deleted";
+                lb_Image1.Text = Message.Deleted;
                 lb_Image1.Tag = null;
                 lb_Resolution1.Text = null;
             }
@@ -281,7 +253,7 @@ namespace SimilarImages
             catch (ArgumentException)
             {
                 pictureBox2.Image = null;
-                lb_Image2.Text = "Deleted";
+                lb_Image2.Text = Message.Deleted;
                 lb_Image2.Tag = null;
                 lb_Resolution2.Text = null;
             }
@@ -313,15 +285,16 @@ namespace SimilarImages
         {
             if (pictureBox.Image == null) { return; }
 
-            DialogResult dr = MessageBox.Show($"Move this image [{label.Text}] to recycle bin?",
-                "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show(
+                Message.DeleteImage_1 + label.Text + Message.DeleteImage_2,
+                Message.Confirm, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dr == DialogResult.OK)
             {
                 pictureBox.Image.Dispose();
                 pictureBox.Image = null;
                 FileSystem.DeleteFile(label.Tag.ToString(),
                     UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
-                label.Text = "Deleted";
+                label.Text = Message.Deleted;
             }
         }
 
