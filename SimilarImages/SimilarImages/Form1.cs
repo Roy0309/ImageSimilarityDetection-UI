@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SimilarImages
@@ -31,7 +30,6 @@ namespace SimilarImages
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             pnl_Image1.Width = pnl_Main.Width / 2;
-            lvw_Result.Columns[0].Width = lvw_Result.Width;
         }
 
         #region Config
@@ -184,6 +182,18 @@ namespace SimilarImages
                 tip = "请输入合适的文件夹路径。";
             }
             if (!AssertConfig(validFolderPath, tip)) { return; }
+
+            // Dispose previous items
+            pictureBox1.Image?.Dispose();
+            pictureBox1.Image = null;
+            lb_Image1.Text = isSimplifiedChinese ? "图片 1" : "Image 1";
+            lb_Image1.Tag = null;
+            lb_Resolution1.Text = "";
+            pictureBox2.Image?.Dispose();
+            pictureBox2.Image = null;
+            lb_Image2.Text = isSimplifiedChinese ? "图片 2" : "Image 2";
+            lb_Image2.Tag = null;
+            lb_Resolution2.Text = "";
 
             // Process
             progressBar1.Visible = true;

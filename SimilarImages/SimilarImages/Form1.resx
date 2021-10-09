@@ -685,7 +685,7 @@
     <value>11</value>
   </data>
   <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>159</value>
+    <value>154</value>
   </data>
   <data name="lvw_Result.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
