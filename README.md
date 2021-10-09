@@ -1,11 +1,11 @@
 # ImageSimilarityDetection-UI
-Find similar images in the directory by aHash/dHash/pHash.
+Find similar images in serveral directory by aHash/dHash/pHash.
 
 ## Supported formats
-.jpg; .jpeg; .png
+.jpg; .jpeg; .png; .bmp
 
 ## Purpose 
-Reduce duplication in an image folder.
+Reduce duplication in image folders.
 
 ## Principle
 1. Implement aHash, dHash, pHash to generate the fingerprint of images.
