@@ -1,5 +1,5 @@
 # ImageSimilarityDetection-UI
-Find similar images in serveral directory by aHash/dHash/pHash.
+Find similar images in serveral directories by aHash/dHash/pHash.
 
 ## Supported formats
 .jpg; .jpeg; .png; .bmp
