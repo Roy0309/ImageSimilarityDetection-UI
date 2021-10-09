@@ -16,11 +16,11 @@ namespace SimilarImages
     internal class ImageHash
     {
         private static readonly string[] imageExtensions = new string[] { ".png", ".jpg", ".jpeg", ".bmp" };
-        private static int currentPrecision = 20;
+        private static int currentPrecision;
         private static InterpolationMode currentInterpolationMode;
 
         public static List<Tuple<string, string, double>> GetSimilarity(
-            string folderPath, out int validImageCount, int precision, 
+            List<string> folderPathes, out int validImageCount, int precision, 
             InterpolationMode interpolationMode, HashEnum hashEnum, int threshold)
         {
             Stopwatch watch = new Stopwatch();
@@ -29,7 +29,7 @@ namespace SimilarImages
             {
                 throw new ArgumentOutOfRangeException("Threshold should be [0,100);");
             }
-            if (!Directory.Exists(folderPath))
+            if (!folderPathes.TrueForAll((path)=>Directory.Exists(path)))
             {
                 throw new DirectoryNotFoundException("Directory not found.");
             }
@@ -43,7 +43,23 @@ namespace SimilarImages
             currentInterpolationMode = interpolationMode;
 
             // Get hashes
-            var imageHashPairs = GetImageHashes(folderPath, hashEnum);
+            KeyValuePair<string, string>[] imageHashPairs = null;
+            foreach (string folderPath in folderPathes)
+            {
+                var pairs = GetImageHashes(folderPath, hashEnum);
+                if (pairs != null)
+                {
+                    if (imageHashPairs == null)
+                    {
+                        imageHashPairs = pairs;
+                    }
+                    else
+                    {
+                        imageHashPairs.Union(pairs);
+                    }
+                }
+            }
+            
             validImageCount = imageHashPairs == null ? 0 : imageHashPairs.Length;
             if (imageHashPairs == null) { return null; }
 
@@ -89,7 +105,7 @@ namespace SimilarImages
             DirectoryInfo di = new DirectoryInfo(folderPath);
             var imageNames = from file in di.GetFiles()
                              where imageExtensions.Contains(file.Extension)
-                             select file.Name;
+                             select file.FullName;
             Debug.WriteLine($"Directory: {folderPath}\nImage count: {imageNames.Count()}");
             if (imageNames.Count() < 2) { return null; }
 
@@ -98,16 +114,13 @@ namespace SimilarImages
             switch (hashEnum)
             {
                 case HashEnum.Difference:
-                    hashMethod = (imageName) => 
-                        GetDifferenceHash(Path.Combine(folderPath, imageName));
+                    hashMethod = (imageName) => GetDifferenceHash(imageName);
                     break;
                 case HashEnum.Mean:
-                    hashMethod = (imageName) => 
-                        GetMeanHash(Path.Combine(folderPath, imageName));
+                    hashMethod = (imageName) => GetMeanHash(imageName);
                     break;
                 case HashEnum.Perceptual:
-                    hashMethod = (imageName) => 
-                        GetPerceptualHash(Path.Combine(folderPath, imageName));
+                    hashMethod = (imageName) => GetPerceptualHash(imageName);
                     break;
                 default: break;
             }

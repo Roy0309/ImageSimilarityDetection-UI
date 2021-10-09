@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Directory = new System.Windows.Forms.TextBox();
-            this.btn_Directory = new System.Windows.Forms.Button();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.pnl_Config = new System.Windows.Forms.Panel();
             this.tkb_Threshold = new System.Windows.Forms.TrackBar();
             this.tkb_Precision = new System.Windows.Forms.TrackBar();
@@ -87,14 +87,14 @@
             this.tb_Directory.Name = "tb_Directory";
             this.tb_Directory.ReadOnly = true;
             // 
-            // btn_Directory
+            // btn_Clear
             // 
-            this.btn_Directory.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btn_Directory.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            resources.ApplyResources(this.btn_Directory, "btn_Directory");
-            this.btn_Directory.Name = "btn_Directory";
-            this.btn_Directory.UseVisualStyleBackColor = false;
-            this.btn_Directory.Click += new System.EventHandler(this.btn_Directory_Click);
+            this.btn_Clear.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_Clear.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.btn_Clear, "btn_Clear");
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // pnl_Config
             // 
@@ -112,7 +112,7 @@
             this.pnl_Config.Controls.Add(this.lb_Count);
             this.pnl_Config.Controls.Add(this.label4);
             this.pnl_Config.Controls.Add(this.label1);
-            this.pnl_Config.Controls.Add(this.btn_Directory);
+            this.pnl_Config.Controls.Add(this.btn_Clear);
             this.pnl_Config.Controls.Add(this.tb_Directory);
             resources.ApplyResources(this.pnl_Config, "pnl_Config");
             this.pnl_Config.Name = "pnl_Config";
@@ -391,7 +391,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_Directory;
-        private System.Windows.Forms.Button btn_Directory;
+        private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Panel pnl_Config;
         private System.Windows.Forms.ListView lvw_Result;
         private System.Windows.Forms.PictureBox pictureBox1;

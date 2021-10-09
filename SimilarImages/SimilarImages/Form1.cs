@@ -13,11 +13,12 @@ namespace SimilarImages
 {
     public partial class Form1 : Form
     {
-        private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         private int precision;
         private int threshold;
         private ImageHash.HashEnum hashEnum;
         private InterpolationMode interpolationMode;
+
+        private List<string> folderPathes = new List<string>();
         private List<Tuple<string, string, double>> tuples = null;
         private readonly bool isSimplifiedChinese = CultureInfo.CurrentUICulture.Name == "zh-CN";
 
@@ -40,44 +41,44 @@ namespace SimilarImages
             tkb_Threshold.Value = 80;
             cmb_Algorithm.SelectedIndex = 0;
             cmb_Interpolation.SelectedIndex = 0;
-            tb_Directory.Text = folderPath;
+            tb_Directory.Text = null;
         }
 
-        private void btn_Directory_Click(object sender, EventArgs e)
+        private void btn_Clear_Click(object sender, EventArgs e)
         {
-            string description = "Choose a folder to find similar images.";
-            if (isSimplifiedChinese) { description = "选择一个文件夹来寻找相似的图片。"; }
-            FolderBrowserDialog fbd = new FolderBrowserDialog
-            {
-                Description = description,
-                ShowNewFolderButton = false
-            };
-            fbd.ShowDialog();
-            if (string.IsNullOrEmpty(fbd.SelectedPath)) { return; }
-            tb_Directory.Text = fbd.SelectedPath;
-            folderPath = fbd.SelectedPath;
+            folderPathes.Clear();
+            tb_Directory.Text = null;
+            ClearResult();
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                var path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                if (Directory.Exists(path))
+                string[] pathes = (string[])e.Data.GetData(DataFormats.FileDrop);
+                foreach (string path in pathes)
                 {
-                    e.Effect = DragDropEffects.Copy;
-                    return;
+                    if (Directory.Exists(path))
+                    {
+                        e.Effect = DragDropEffects.Copy;
+                        return;
+                    }
                 }
             }
+
             e.Effect = DragDropEffects.None;
+            MessageBox.Show(
+                isSimplifiedChinese ? "仅支持文件夹。" : "Support folder(s) only.", 
+                isSimplifiedChinese ? "提示" : "Notice",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                tb_Directory.Text = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                folderPath = tb_Directory.Text;
+                folderPathes.AddRange((string[])e.Data.GetData(DataFormats.FileDrop));
+                tb_Directory.Text = string.Join("; ", folderPathes);
             }
         }
 
@@ -168,25 +169,18 @@ namespace SimilarImages
             // Check config
             precision = tkb_Precision.Value;
             threshold = tkb_Threshold.Value;
-
-            string tip = "Directory does not exist.";
-            if (isSimplifiedChinese)
+            if (folderPathes.Count == 0 ||
+                !folderPathes.TrueForAll((path) => Directory.Exists(path)))
             {
-                tip = "文件夹不存在。";
+                MessageBox.Show(
+                    isSimplifiedChinese ? "文件夹不存在。" : "Directory does not exist.", 
+                    isSimplifiedChinese ? "提示" : "Notice",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            if (!AssertConfig(Directory.Exists(tb_Directory.Text), tip)) { return; }
 
             // Dispose previous items
-            pictureBox1.Image?.Dispose();
-            pictureBox1.Image = null;
-            lb_Image1.Text = isSimplifiedChinese ? "图片 1" : "Image 1";
-            lb_Image1.Tag = null;
-            lb_Resolution1.Text = "";
-            pictureBox2.Image?.Dispose();
-            pictureBox2.Image = null;
-            lb_Image2.Text = isSimplifiedChinese ? "图片 2" : "Image 2";
-            lb_Image2.Tag = null;
-            lb_Resolution2.Text = "";
+            ClearResult();
 
             // Process
             progressBar1.Visible = true;
@@ -194,14 +188,19 @@ namespace SimilarImages
             bgw_Calculate.RunWorkerAsync();
         }
 
-        private bool AssertConfig(bool successCondition, string failureTip)
+        private void ClearResult()
         {
-            if (!successCondition)
-            {
-                MessageBox.Show(failureTip, isSimplifiedChinese ? "提示" : "Notice",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            return successCondition;
+            lvw_Result.Items.Clear();
+            pictureBox1.Image?.Dispose();
+            pictureBox1.Image = null;
+            lb_Image1.Text = isSimplifiedChinese ? "图片 1" : "Image 1";
+            lb_Image1.Tag = null;
+            lb_Resolution1.Text = null;
+            pictureBox2.Image?.Dispose();
+            pictureBox2.Image = null;
+            lb_Image2.Text = isSimplifiedChinese ? "图片 2" : "Image 2";
+            lb_Image2.Tag = null;
+            lb_Resolution2.Text = null;
         }
 
         private void bgw_Calculate_DoWork(object sender, DoWorkEventArgs e)
@@ -209,7 +208,7 @@ namespace SimilarImages
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            tuples = ImageHash.GetSimilarity(folderPath, out int count,
+            tuples = ImageHash.GetSimilarity(folderPathes, out int count,
                 precision, interpolationMode, hashEnum, threshold);
             lb_Count.Invoke((Action)(() => { lb_Count.Text = count.ToString(); }));
 
@@ -260,9 +259,9 @@ namespace SimilarImages
             var selectedTuple = tuples[lvw_Result.SelectedIndices[0]];
             try
             {
-                pictureBox1.Image = new Bitmap(Path.Combine(folderPath, selectedTuple.Item1));
-                lb_Image1.Text = selectedTuple.Item1;
-                lb_Image1.Tag = Path.Combine(folderPath, selectedTuple.Item1);
+                pictureBox1.Image = new Bitmap(selectedTuple.Item1);
+                lb_Image1.Text = selectedTuple.Item1.Substring(selectedTuple.Item1.LastIndexOf('\\') + 1);
+                lb_Image1.Tag = selectedTuple.Item1;
                 lb_Resolution1.Text = $"{pictureBox1.Image.Width}*{pictureBox1.Image.Height}";
             }
             catch (ArgumentException)
@@ -270,13 +269,13 @@ namespace SimilarImages
                 pictureBox1.Image = null;
                 lb_Image1.Text = "Deleted";
                 lb_Image1.Tag = null;
-                lb_Resolution1.Text = "";
+                lb_Resolution1.Text = null;
             }
             try
             {
-                pictureBox2.Image = new Bitmap(Path.Combine(folderPath, selectedTuple.Item2));
-                lb_Image2.Text = selectedTuple.Item2;
-                lb_Image2.Tag = Path.Combine(folderPath, selectedTuple.Item2);
+                pictureBox2.Image = new Bitmap(selectedTuple.Item2);
+                lb_Image2.Text = selectedTuple.Item2.Substring(selectedTuple.Item2.LastIndexOf('\\') + 1);
+                lb_Image2.Tag = selectedTuple.Item2;
                 lb_Resolution2.Text = $"{pictureBox2.Image.Width}*{pictureBox2.Image.Height}";
             }
             catch (ArgumentException)
@@ -284,7 +283,7 @@ namespace SimilarImages
                 pictureBox2.Image = null;
                 lb_Image2.Text = "Deleted";
                 lb_Image2.Tag = null;
-                lb_Resolution2.Text = "";
+                lb_Resolution2.Text = null;
             }
 
             if (pictureBox1.Image.Width * pictureBox1.Image.Height >= 
@@ -320,7 +319,7 @@ namespace SimilarImages
             {
                 pictureBox.Image.Dispose();
                 pictureBox.Image = null;
-                FileSystem.DeleteFile(Path.Combine(folderPath, label.Text),
+                FileSystem.DeleteFile(label.Tag.ToString(),
                     UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
                 label.Text = "Deleted";
             }
@@ -329,13 +328,13 @@ namespace SimilarImages
         private void btn_Open1_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image == null) { return; }
-            Process.Start(Path.Combine(folderPath, lb_Image1.Text));
+            Process.Start(lb_Image1.Tag.ToString());
         }
 
         private void btn_Open2_Click(object sender, EventArgs e)
         {
             if (pictureBox2.Image == null) { return; }
-            Process.Start(Path.Combine(folderPath, lb_Image2.Text));
+            Process.Start(lb_Image2.Tag.ToString());
         }
 
         private void lb_Image1_MouseHover(object sender, EventArgs e)
