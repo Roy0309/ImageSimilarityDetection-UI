@@ -135,16 +135,22 @@
   <data name="btn_Directory.ToolTip1" xml:space="preserve">
     <value />
   </data>
+  <data name="tkb_Threshold.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tkb_Threshold.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tkb_Precision.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tkb_Precision.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
   <data name="progressBar1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="progressBar1.ToolTip1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label3.ToolTip1" xml:space="preserve">
     <value />
   </data>
   <data name="btn_Process.ToolTip" xml:space="preserve">
@@ -183,22 +189,10 @@
   <data name="label6.ToolTip1" xml:space="preserve">
     <value />
   </data>
-  <data name="tb_Threshold.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tb_Threshold.ToolTip1" xml:space="preserve">
-    <value />
-  </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="label5.ToolTip1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tb_Precision.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tb_Precision.ToolTip1" xml:space="preserve">
     <value />
   </data>
   <data name="lb_Count.ToolTip" xml:space="preserve">

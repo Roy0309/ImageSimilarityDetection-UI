@@ -363,6 +363,7 @@
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.pnl_List);
             this.Controls.Add(this.pnl_Config);

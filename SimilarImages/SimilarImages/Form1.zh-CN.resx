@@ -125,7 +125,7 @@
     <value>图片目录</value>
   </data>
   <data name="tkb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>577, 41</value>
+    <value>578, 38</value>
   </data>
   <data name="btn_Process.Text" xml:space="preserve">
     <value>运行</value>
@@ -141,9 +141,6 @@
   </data>
   <data name="cmb_Interpolation.Items3" xml:space="preserve">
     <value>高质量双立方 - 慢</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 46</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 15</value>
@@ -164,7 +161,10 @@
     <value>感知哈希</value>
   </data>
   <data name="cmb_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 41</value>
+    <value>405, 38</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 41</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 15</value>
@@ -176,7 +176,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>508, 45</value>
+    <value>508, 41</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 15</value>

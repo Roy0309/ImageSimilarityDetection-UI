@@ -31,6 +31,7 @@ namespace SimilarImages
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             pnl_Image1.Width = pnl_Main.Width / 2;
+            lvw_Result.Columns[0].Width = lvw_Result.Width;
         }
 
         #region Config
@@ -218,7 +219,7 @@ namespace SimilarImages
             lvw_Result.Items.Clear();
             progressBar1.Visible = false;
             btn_Process.Enabled = true;
-            if (tuples == null)
+            if (tuples == null || tuples.Count == 0)
             {
                 lvw_Result.Items.Add("No result");
                 return;
