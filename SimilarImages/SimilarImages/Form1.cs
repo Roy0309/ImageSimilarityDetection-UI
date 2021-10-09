@@ -14,10 +14,10 @@ namespace SimilarImages
     public partial class Form1 : Form
     {
         private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        private int precision = 20;
-        private int threshold = 80;
-        private ImageHash.HashEnum hashEnum = ImageHash.HashEnum.Difference;
-        private InterpolationMode interpolationMode = InterpolationMode.Default;
+        private int precision;
+        private int threshold;
+        private ImageHash.HashEnum hashEnum;
+        private InterpolationMode interpolationMode;
         private List<Tuple<string, string, double>> tuples = null;
         private readonly bool isSimplifiedChinese = CultureInfo.CurrentUICulture.Name == "zh-CN";
 
@@ -36,6 +36,8 @@ namespace SimilarImages
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            tkb_Precision.Value = 20;
+            tkb_Threshold.Value = 80;
             cmb_Algorithm.SelectedIndex = 0;
             cmb_Interpolation.SelectedIndex = 0;
             tb_Directory.Text = folderPath;
@@ -56,15 +58,6 @@ namespace SimilarImages
             folderPath = fbd.SelectedPath;
         }
 
-        private void Form1_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                tb_Directory.Text = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                folderPath = tb_Directory.Text;
-            }
-        }
-
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -79,27 +72,12 @@ namespace SimilarImages
             e.Effect = DragDropEffects.None;
         }
 
-        private void tb_Threshold_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            // Allow 0-9, backspace
-            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
-            { e.Handled = true; }
-        }
-
-        private void cmb_Algorithm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            hashEnum = (ImageHash.HashEnum)cmb_Algorithm.SelectedIndex;
-        }
-
-        private void cmb_Interpolation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmb_Interpolation.SelectedIndex)
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                case 0: interpolationMode = InterpolationMode.Default; break;
-                case 1: interpolationMode = InterpolationMode.NearestNeighbor; break;
-                case 2: interpolationMode = InterpolationMode.HighQualityBilinear; break;
-                case 3: interpolationMode = InterpolationMode.HighQualityBicubic; break;
-                default: break;
+                tb_Directory.Text = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                folderPath = tb_Directory.Text;
             }
         }
 
@@ -122,6 +100,18 @@ namespace SimilarImages
             toolTip1.SetToolTip((Control)sender, tip);
         }
 
+        private void cmb_Interpolation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmb_Interpolation.SelectedIndex)
+            {
+                case 0: interpolationMode = InterpolationMode.Default; break;
+                case 1: interpolationMode = InterpolationMode.NearestNeighbor; break;
+                case 2: interpolationMode = InterpolationMode.HighQualityBilinear; break;
+                case 3: interpolationMode = InterpolationMode.HighQualityBicubic; break;
+                default: break;
+            }
+        }
+
         private void cmb_Interpolation_MouseHover(object sender, EventArgs e)
         {
             string tip = "The interpolation mode when resizing images.";
@@ -130,6 +120,11 @@ namespace SimilarImages
                 tip = "图片缩放时的插值模式。";
             }
             toolTip1.SetToolTip((Control)sender, tip);
+        }
+
+        private void cmb_Algorithm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hashEnum = (ImageHash.HashEnum)cmb_Algorithm.SelectedIndex;
         }
 
         private void cmb_Algorithm_MouseHover(object sender, EventArgs e)
@@ -174,14 +169,12 @@ namespace SimilarImages
             precision = tkb_Precision.Value;
             threshold = tkb_Threshold.Value;
 
-            bool validFolderPath = !string.IsNullOrEmpty(tb_Directory.Text) && 
-                                   Directory.Exists(tb_Directory.Text);
-            string tip = "Please input valid folder path.";
+            string tip = "Directory does not exist.";
             if (isSimplifiedChinese)
             {
-                tip = "请输入合适的文件夹路径。";
+                tip = "文件夹不存在。";
             }
-            if (!AssertConfig(validFolderPath, tip)) { return; }
+            if (!AssertConfig(Directory.Exists(tb_Directory.Text), tip)) { return; }
 
             // Dispose previous items
             pictureBox1.Image?.Dispose();
