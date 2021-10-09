@@ -83,7 +83,7 @@ namespace SimilarImages
             Debug.WriteLine($"GetHash: {hashTime}ms; CompareHash: {compareTime}ms");
 
             // Sort by similarity
-            return tuples.OrderByDescending(u => u.Item3).ToList();
+            return tuples.OrderByDescending(u => u.Item3).ToList(); // TODO: seldom u=null.
         }
 
         public enum HashEnum
@@ -124,7 +124,10 @@ namespace SimilarImages
 
             // Get hashes
             var imageHashPairs = new ConcurrentDictionary<string, string>();
-            Parallel.ForEach(imageNames, imageName =>
+            Parallel.ForEach(imageNames,
+                // TODO: Add performance limitation option 
+                //new ParallelOptions { MaxDegreeOfParallelism = Convert.ToInt32(Math.Ceiling((Environment.ProcessorCount * 0.5) * 1.0)) },
+                imageName =>
             {
                 string hash = hashMethod(imageName);
                 if (!string.IsNullOrEmpty(hash))
@@ -272,6 +275,8 @@ namespace SimilarImages
                     g.DrawImage(originalBmp, 0, 0, bmp.Width, bmp.Height);
                 }
 
+                originalBmp.Dispose();
+
                 watch.Stop();
                 resizeImageTime = watch.ElapsedMilliseconds;
                 watch.Restart();
@@ -298,8 +303,6 @@ namespace SimilarImages
             watch.Stop();
             long imageMatrixTime = watch.ElapsedMilliseconds;
             //Debug.WriteLine($"Original: {originalBmpTime,3}ms; Resize: {resizeImageTime,3}ms; Matrix: {imageMatrixTime}ms");
-
-            originalBmp.Dispose();
 
             // Get mean gray
             grayMean = graySum / height / width;
