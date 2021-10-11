@@ -180,6 +180,7 @@ namespace SimilarImages
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
+            tuples = null;
             tuples = ImageHash.GetSimilarity(folderPathes, out int count,
                 precision, interpolationMode, hashEnum, threshold);
             lb_Count.Invoke((Action)(() => { lb_Count.Text = count.ToString(); }));

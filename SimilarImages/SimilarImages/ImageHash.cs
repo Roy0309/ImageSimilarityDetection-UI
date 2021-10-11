@@ -33,8 +33,8 @@ namespace SimilarImages
             {
                 throw new DirectoryNotFoundException("Directory not found.");
             }
-            Debug.WriteLine($"Hash Algorithm: {hashEnum}\nPrecision: {precision}\n" +
-                            $"Interpolation Mode: {interpolationMode}\nThreshold: {threshold}%");
+            Debug.WriteLine($"HashAlgorithm: {hashEnum} Precision: {precision}\n" +
+                            $"InterpolationMode: {interpolationMode} Threshold: {threshold}%");
 
             watch.Restart();
 
@@ -62,7 +62,7 @@ namespace SimilarImages
             watch.Restart();
 
             // Compare hashes
-            var tuples = new List<Tuple<string, string, double>>();
+            var tuples = new ConcurrentBag<Tuple<string, string, double>>();
             Parallel.For(0, imageHashPairs.Length, i =>
             {
                 for (int j = imageHashPairs.Length - 1; j > i; j--)
@@ -81,9 +81,10 @@ namespace SimilarImages
             watch.Stop();
             long compareTime = watch.ElapsedMilliseconds;
             Debug.WriteLine($"GetHash: {hashTime}ms; CompareHash: {compareTime}ms");
+            Debug.WriteLine("TuplesCount:" + tuples.Count);
 
             // Sort by similarity
-            return tuples.OrderByDescending(u => u.Item3).ToList(); // TODO: seldom u=null.
+            return tuples.OrderByDescending(u => u.Item3).ToList();
         }
 
         public enum HashEnum
@@ -100,7 +101,7 @@ namespace SimilarImages
             var imageNames = from file in di.GetFiles()
                              where imageExtensions.Contains(file.Extension)
                              select file.FullName;
-            Debug.WriteLine($"Directory: {folderPath}\nImage count: {imageNames.Count()}");
+            Debug.WriteLine($"Directory: {folderPath}; ImageCount: {imageNames.Count()}");
             if (imageNames.Count() < 2) { return null; }
 
             // Get hash algorithm
@@ -137,7 +138,7 @@ namespace SimilarImages
             });
 
             watch.Stop();
-            Debug.WriteLine($"Valid count: {imageHashPairs.Count} elapsed time: {watch.ElapsedMilliseconds}ms");
+            Debug.WriteLine($"ValidCount: {imageHashPairs.Count}; ElapsedTime: {watch.ElapsedMilliseconds}ms");
             return imageHashPairs.ToArray();
         }
 
