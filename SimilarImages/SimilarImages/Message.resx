@@ -166,12 +166,17 @@
     <value>Notice</value>
   </data>
   <data name="PresionHelp" xml:space="preserve">
-    <value>\nUsage: When sampling, resize images to "Precision * Precision".\nNotice: Don't set it too large to run out of memory.</value>
+    <value>
+Usage: When sampling, resize images to "Precision * Precision".
+Notice: Don't set it too large to run out of memory.</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Result</value>
   </data>
   <data name="ThresholdHelp" xml:space="preserve">
-    <value>%\nRange: 0-99%.\nUsage: Return results greater than the threshold.\nNotice: Don't set a low threshold when processing mass images as the operation will take too long.</value>
+    <value>%
+Range: 0-99%
+Usage: Return results greater than the threshold.
+Notice: Don't set a low threshold when processing mass images as the operation will take too long.</value>
   </data>
 </root>

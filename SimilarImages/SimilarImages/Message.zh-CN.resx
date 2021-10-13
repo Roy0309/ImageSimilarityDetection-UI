@@ -166,12 +166,17 @@
     <value>提示</value>
   </data>
   <data name="PresionHelp" xml:space="preserve">
-    <value>\n用途：采样时将图片缩放至 “精度 * 精度”。\n注意：不要设置得太大以免耗尽内存。</value>
+    <value>
+用途：采样时将图片缩放至 “精度 * 精度”。
+注意：不要设置得太大以免耗尽内存。</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>结果</value>
   </data>
   <data name="ThresholdHelp" xml:space="preserve">
-    <value>%\n范围：0-99%。\n用途：返回大于阈值的结果。\n注意：当图片数量较多时，不要使用低阈值，以免耗时太长。</value>
+    <value>%
+范围：0-99%
+用途：返回大于阈值的结果。
+注意：当图片数量较多时，不要使用低阈值，以免耗时太长。</value>
   </data>
 </root>

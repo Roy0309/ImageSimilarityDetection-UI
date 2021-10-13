@@ -205,7 +205,9 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 \nUsage: When sampling, resize images to &quot;Precision * Precision&quot;.\nNotice: Don&apos;t set it too large to run out of memory. 的本地化字符串。
+        ///   查找类似 
+        ///Usage: When sampling, resize images to &quot;Precision * Precision&quot;.
+        ///Notice: Don&apos;t set it too large to run out of memory. 的本地化字符串。
         /// </summary>
         internal static string PresionHelp {
             get {
@@ -223,7 +225,10 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 %\nRange: 0-99%.\nUsage: Return results greater than the threshold.\nNotice: Don&apos;t set a low threshold when processing mass images as the operation will take too long. 的本地化字符串。
+        ///   查找类似 %
+        ///Range: 0-99%
+        ///Usage: Return results greater than the threshold.
+        ///Notice: Don&apos;t set a low threshold when processing mass images as the operation will take too long. 的本地化字符串。
         /// </summary>
         internal static string ThresholdHelp {
             get {
