@@ -98,9 +98,10 @@ namespace SimilarImages
         {
             // Get images
             DirectoryInfo di = new DirectoryInfo(folderPath);
-            var imageNames = from file in di.GetFiles()
-                             where imageExtensions.Contains(file.Extension)
-                             select file.FullName;
+            var imageNames = from imageName 
+                             in Directory.EnumerateFiles(folderPath, "*.*", SearchOption.AllDirectories)
+                             where imageExtensions.Any(imageName.ToLower().EndsWith)
+                             select imageName;
             Debug.WriteLine($"Directory: {folderPath}; ImageCount: {imageNames.Count()}");
             if (imageNames.Count() < 2) { return null; }
 

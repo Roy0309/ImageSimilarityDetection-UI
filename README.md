@@ -15,8 +15,7 @@ Reduce duplication in image folders.
 ## Usage
 1. Get `SimilarImages.exe` in the following ways.
   - Build this project in Visual Studio.
-  - Find it in [_Output](_Output).
-  - Find it in [Releases](https://github.com/Roy0309/ImageSimilarityDetection-UI/releases).
+  - Or find it in [Releases](https://github.com/Roy0309/ImageSimilarityDetection-UI/releases).
   
 2. Double click `SimilarImages.exe`. Select an image folder and set arguments (the default is suggested arguments). Enjoy!
 
