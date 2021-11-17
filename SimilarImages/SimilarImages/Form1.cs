@@ -259,7 +259,9 @@ namespace SimilarImages
                 lb_Resolution2.Text = null;
             }
 
-            if (pictureBox1.Image.Width * pictureBox1.Image.Height >= 
+            if (pictureBox1.Image != null && 
+                pictureBox2.Image != null &&
+                pictureBox1.Image.Width * pictureBox1.Image.Height >= 
                 pictureBox2.Image.Width * pictureBox2.Image.Height)
             {
                 lb_Resolution1.ForeColor = Color.Green;
