@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SimilarImages
@@ -20,28 +21,29 @@ namespace SimilarImages
 
             // Show images
             var selectedTuple = tuples[lvw_Result.SelectedIndices[0]];
-            try
+            if (File.Exists(selectedTuple.Item1))
             {
                 pictureBox1.Image = new Bitmap(selectedTuple.Item1);
                 lb_Image1.Text = selectedTuple.Item1.Substring(selectedTuple.Item1.LastIndexOf('\\') + 1);
                 lb_Image1.Tag = selectedTuple.Item1;
                 lb_Resolution1.Text = $"{pictureBox1.Image.Width}*{pictureBox1.Image.Height}";
             }
-            catch (ArgumentException)
+            else
             {
                 pictureBox1.Image = null;
                 lb_Image1.Text = Message.Deleted;
                 lb_Image1.Tag = null;
                 lb_Resolution1.Text = null;
             }
-            try
+
+            if (File.Exists(selectedTuple.Item2))
             {
                 pictureBox2.Image = new Bitmap(selectedTuple.Item2);
                 lb_Image2.Text = selectedTuple.Item2.Substring(selectedTuple.Item2.LastIndexOf('\\') + 1);
                 lb_Image2.Tag = selectedTuple.Item2;
                 lb_Resolution2.Text = $"{pictureBox2.Image.Width}*{pictureBox2.Image.Height}";
             }
-            catch (ArgumentException)
+            else
             {
                 pictureBox2.Image = null;
                 lb_Image2.Text = Message.Deleted;
@@ -98,17 +100,23 @@ namespace SimilarImages
 
         private void btn_Delete1_MouseDown(object sender, MouseEventArgs e)
         {
-            DeleteImage(pictureBox1, lb_Image1, e.Button == MouseButtons.Right);
+            if (DeleteImage(pictureBox1, lb_Image1, e.Button == MouseButtons.Right))
+            {
+                UpdateSelectedIndex();
+            }
         }
 
         private void btn_Delete2_MouseDown(object sender, MouseEventArgs e)
         {
-            DeleteImage(pictureBox2, lb_Image2, e.Button == MouseButtons.Right);
+            if (DeleteImage(pictureBox2, lb_Image2, e.Button == MouseButtons.Right))
+            {
+                UpdateSelectedIndex();
+            }
         }
 
-        private void DeleteImage(PictureBox pictureBox, Label label, bool force)
+        private bool DeleteImage(PictureBox pictureBox, Label label, bool force)
         {
-            if (pictureBox.Image == null) { return; }
+            if (pictureBox.Image == null) { return false; }
 
             DialogResult dr = DialogResult.Cancel;
 
@@ -126,7 +134,29 @@ namespace SimilarImages
                 FileSystem.DeleteFile(label.Tag.ToString(),
                     UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
                 label.Text = Message.Deleted;
+                return true;
             }
+            return false;
+        }
+
+        private void UpdateSelectedIndex()
+        {
+            // Unselect current
+            int currentSelectedIndex = lvw_Result.SelectedIndices[0];
+            lvw_Result.Items[currentSelectedIndex].Selected = false;
+
+            // Select new
+            if (currentSelectedIndex < lvw_Result.Items.Count - 1)
+            {
+                lvw_Result.Items[currentSelectedIndex + 1].Selected = true;
+            }
+            else
+            {
+                lvw_Result.Items[0].Selected = true;
+            }
+
+            // Scroll to new
+            lvw_Result.EnsureVisible(lvw_Result.SelectedIndices[0]);
         }
 
         private void btn_Delete1_MouseHover(object sender, EventArgs e)
