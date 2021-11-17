@@ -179,4 +179,7 @@
 用途：返回大于阈值的结果。
 注意：当图片数量较多时，不要使用低阈值，以免耗时太长。</value>
   </data>
+  <data name="DeleteHelp" xml:space="preserve">
+    <value>右键点击直接删除。</value>
+  </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿namespace SimilarImages
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.ColumnHeader columnHeader1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Directory = new System.Windows.Forms.TextBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.pnl_Config = new System.Windows.Forms.Panel();
             this.tkb_Threshold = new System.Windows.Forms.TrackBar();
             this.tkb_Precision = new System.Windows.Forms.TrackBar();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.btn_Process = new System.Windows.Forms.Button();
             this.cmb_Interpolation = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.lb_Count = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lvw_Result = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lb_Image1 = new System.Windows.Forms.Label();
@@ -63,8 +63,9 @@
             this.lb_Resolution1 = new System.Windows.Forms.Label();
             this.bgw_Calculate = new System.ComponentModel.BackgroundWorker();
             this.pnl_List = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipHelp = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipMisc = new System.Windows.Forms.ToolTip(this.components);
+            columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnl_Config.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Threshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Precision)).BeginInit();
@@ -75,6 +76,10 @@
             this.pnl_Image1.SuspendLayout();
             this.pnl_List.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // columnHeader1
+            // 
+            resources.ApplyResources(columnHeader1, "columnHeader1");
             // 
             // label1
             // 
@@ -104,7 +109,7 @@
             this.pnl_Config.BackColor = System.Drawing.SystemColors.Window;
             this.pnl_Config.Controls.Add(this.tkb_Threshold);
             this.pnl_Config.Controls.Add(this.tkb_Precision);
-            this.pnl_Config.Controls.Add(this.progressBar1);
+            this.pnl_Config.Controls.Add(this.progressBar);
             this.pnl_Config.Controls.Add(this.btn_Process);
             this.pnl_Config.Controls.Add(this.cmb_Interpolation);
             this.pnl_Config.Controls.Add(this.label2);
@@ -141,12 +146,12 @@
             this.tkb_Precision.ValueChanged += new System.EventHandler(this.tkb_Precision_ValueChanged);
             this.tkb_Precision.MouseHover += new System.EventHandler(this.tkb_Precision_MouseHover);
             // 
-            // progressBar1
+            // progressBar
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.Value = 60;
+            resources.ApplyResources(this.progressBar, "progressBar");
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar.Value = 60;
             // 
             // btn_Process
             // 
@@ -218,7 +223,7 @@
             // lvw_Result
             // 
             this.lvw_Result.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
+            columnHeader1});
             resources.ApplyResources(this.lvw_Result, "lvw_Result");
             this.lvw_Result.FullRowSelect = true;
             this.lvw_Result.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -228,10 +233,6 @@
             this.lvw_Result.UseCompatibleStateImageBehavior = false;
             this.lvw_Result.View = System.Windows.Forms.View.Details;
             this.lvw_Result.SelectedIndexChanged += new System.EventHandler(this.lvw_Result_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
             // pictureBox1
             // 
@@ -269,7 +270,8 @@
             this.btn_Delete1.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Delete1.Name = "btn_Delete1";
             this.btn_Delete1.UseVisualStyleBackColor = false;
-            this.btn_Delete1.Click += new System.EventHandler(this.btn_Delete1_Click);
+            this.btn_Delete1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Delete1_MouseDown);
+            this.btn_Delete1.MouseHover += new System.EventHandler(this.btn_Delete1_MouseHover);
             // 
             // btn_Delete2
             // 
@@ -279,7 +281,8 @@
             this.btn_Delete2.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Delete2.Name = "btn_Delete2";
             this.btn_Delete2.UseVisualStyleBackColor = false;
-            this.btn_Delete2.Click += new System.EventHandler(this.btn_Delete2_Click);
+            this.btn_Delete2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Delete2_MouseDown);
+            this.btn_Delete2.MouseHover += new System.EventHandler(this.btn_Delete2_MouseHover);
             // 
             // pnl_Main
             // 
@@ -355,13 +358,13 @@
             // 
             // toolTip1
             // 
-            this.toolTip1.AutoPopDelay = 8000;
-            this.toolTip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipHelp.AutoPopDelay = 8000;
+            this.toolTipHelp.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolTipHelp.InitialDelay = 500;
+            this.toolTipHelp.ReshowDelay = 100;
+            this.toolTipHelp.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // Form1
+            // FormMain
             // 
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
@@ -371,7 +374,7 @@
             this.Controls.Add(this.pnl_List);
             this.Controls.Add(this.pnl_Config);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
@@ -412,8 +415,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        internal System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        internal System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Panel pnl_List;
         private System.Windows.Forms.Button btn_Open2;
         private System.Windows.Forms.Button btn_Open1;
@@ -421,8 +423,8 @@
         private System.Windows.Forms.Label lb_Resolution1;
         private System.Windows.Forms.ComboBox cmb_Interpolation;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTipHelp;
+        private System.Windows.Forms.ToolTip toolTipMisc;
         private System.Windows.Forms.Panel pnl_Image1;
         private System.Windows.Forms.Panel pnl_Image2;
         private System.Windows.Forms.TrackBar tkb_Precision;

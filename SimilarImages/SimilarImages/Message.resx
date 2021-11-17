@@ -179,4 +179,7 @@ Range: 0-99%
 Usage: Return results greater than the threshold.
 Notice: Don't set a low threshold when processing mass images as the operation will take too long.</value>
   </data>
+  <data name="DeleteHelp" xml:space="preserve">
+    <value>Right click to delete directly.</value>
+  </data>
 </root>

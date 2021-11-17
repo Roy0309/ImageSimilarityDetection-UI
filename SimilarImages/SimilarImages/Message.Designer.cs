@@ -97,6 +97,15 @@ namespace SimilarImages {
         }
         
         /// <summary>
+        ///   查找类似 Right click to delete directly. 的本地化字符串。
+        /// </summary>
+        internal static string DeleteHelp {
+            get {
+                return ResourceManager.GetString("DeleteHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Move this image [ 的本地化字符串。
         /// </summary>
         internal static string DeleteImage_1 {
