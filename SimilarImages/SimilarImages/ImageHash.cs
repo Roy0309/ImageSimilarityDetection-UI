@@ -20,33 +20,30 @@ namespace SimilarImages
         private static InterpolationMode currentInterpolationMode;
 
         public static List<Tuple<string, string, double>> GetSimilarity(
-            List<string> folderPathes, out int validImageCount, int precision, 
-            InterpolationMode interpolationMode, HashEnum hashEnum, int threshold)
+            ref List<string> folderPathes, HashConfig hashConfig, 
+            out int validImageCount, out int similarImageCount)
         {
-            Stopwatch watch = new Stopwatch();
-
-            if (threshold < 0 || threshold >= 100)
-            {
-                throw new ArgumentOutOfRangeException("Threshold should be [0,100);");
-            }
             if (!folderPathes.TrueForAll((path)=>Directory.Exists(path)))
             {
                 throw new DirectoryNotFoundException("Directory not found.");
             }
-            Debug.WriteLine($"HashAlgorithm: {hashEnum} Precision: {precision}\n" +
-                            $"InterpolationMode: {interpolationMode} Threshold: {threshold}%");
 
-            watch.Restart();
+            Debug.WriteLine($"HashConfig: " +
+                $"Algorithm({hashConfig.HashMethod}) Precision({hashConfig.Precision}) " +
+                $"InterpolationMode({hashConfig.InterpolationMode}) Threshold({hashConfig.Threshold}%)");
 
             // Set config
-            currentPrecision = precision;
-            currentInterpolationMode = interpolationMode;
+            currentPrecision = hashConfig.Precision;
+            currentInterpolationMode = hashConfig.InterpolationMode;
+
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
 
             // Get hashes
             KeyValuePair<string, string>[] imageHashPairs = null;
             foreach (string folderPath in folderPathes)
             {
-                var pairs = GetImageHashes(folderPath, hashEnum);
+                var pairs = GetImageHashes(folderPath, hashConfig.HashMethod);
                 if (pairs != null)
                 {
                     imageHashPairs = imageHashPairs == null ? pairs : 
@@ -55,6 +52,7 @@ namespace SimilarImages
             }
             
             validImageCount = imageHashPairs == null ? 0 : imageHashPairs.Length;
+            similarImageCount = 0;
             if (imageHashPairs == null) { return null; }
 
             watch.Stop();
@@ -62,6 +60,7 @@ namespace SimilarImages
             watch.Restart();
 
             // Compare hashes
+            var similarImagePathes = new ConcurrentDictionary<string, byte>();
             var tuples = new ConcurrentBag<Tuple<string, string, double>>();
             Parallel.For(0, imageHashPairs.Length, i =>
             {
@@ -69,29 +68,27 @@ namespace SimilarImages
                 {
                     double percent = GetHammingDistancePercent(
                         imageHashPairs[i].Value, imageHashPairs[j].Value);
-                    if (percent >= (double)threshold / 100)
+
+                    if (percent >= (double)hashConfig.Threshold / 100)
                     {
+                        similarImagePathes.TryAdd(imageHashPairs[i].Key, 1);
+                        similarImagePathes.TryAdd(imageHashPairs[j].Key, 1);
+
                         var tuple = Tuple.Create(imageHashPairs[i].Key,
                             imageHashPairs[j].Key, percent);
                         tuples.Add(tuple);
                     }
                 }
             });
+            similarImageCount = similarImagePathes.Count;
 
             watch.Stop();
             long compareTime = watch.ElapsedMilliseconds;
-            Debug.WriteLine($"GetHash: {hashTime}ms; CompareHash: {compareTime}ms");
-            Debug.WriteLine("TuplesCount:" + tuples.Count);
+            Debug.WriteLine($"GetHash: {hashTime}ms\nCompareHash: {compareTime}ms");
+            Debug.WriteLine($"TupleCount: {tuples.Count}\nSimilarImageCount: {similarImageCount}");
 
             // Sort by similarity
             return tuples.OrderByDescending(u => u.Item3).ToList();
-        }
-
-        public enum HashEnum
-        {
-            Difference,
-            Mean,
-            Perceptual
         }
 
         private static KeyValuePair<string, string>[] GetImageHashes(string folderPath, HashEnum hashEnum)
@@ -102,7 +99,7 @@ namespace SimilarImages
                              in Directory.EnumerateFiles(folderPath, "*.*", SearchOption.AllDirectories)
                              where imageExtensions.Any(imageName.ToLower().EndsWith)
                              select imageName;
-            Debug.WriteLine($"Directory: {folderPath}; ImageCount: {imageNames.Count()}");
+            Debug.WriteLine($"Directory: {folderPath}\nImageCount: {imageNames.Count()}");
             if (imageNames.Count() < 2) { return null; }
 
             // Get hash algorithm
@@ -121,9 +118,6 @@ namespace SimilarImages
                 default: break;
             }
 
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-
             // Get hashes
             var imageHashPairs = new ConcurrentDictionary<string, string>();
             Parallel.ForEach(imageNames,
@@ -138,8 +132,7 @@ namespace SimilarImages
                 }
             });
 
-            watch.Stop();
-            Debug.WriteLine($"ValidCount: {imageHashPairs.Count}; ElapsedTime: {watch.ElapsedMilliseconds}ms");
+            Debug.WriteLine($"ImageCount(Valid): {imageHashPairs.Count}");
             return imageHashPairs.ToArray();
         }
 
@@ -251,18 +244,10 @@ namespace SimilarImages
         {
             grayMean = 0;
 
-            Stopwatch watch = new Stopwatch();
-            watch.Restart();
-
             // Load original image
             Bitmap originalBmp;
             try { originalBmp = new Bitmap(filename); }
             catch (ArgumentException) { return null; }
-
-            watch.Stop();
-            long originalBmpTime = watch.ElapsedMilliseconds;
-            watch.Restart();
-            long resizeImageTime = 0;
 
             // Resize image
             double[,] imageMatrix = new double[width, height];
@@ -278,10 +263,6 @@ namespace SimilarImages
                 }
 
                 originalBmp.Dispose();
-
-                watch.Stop();
-                resizeImageTime = watch.ElapsedMilliseconds;
-                watch.Restart();
 
                 // Get gray image matrix
                 BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height),
@@ -301,10 +282,6 @@ namespace SimilarImages
                 }
                 bmp.UnlockBits(bd);
             }
-
-            watch.Stop();
-            long imageMatrixTime = watch.ElapsedMilliseconds;
-            //Debug.WriteLine($"Original: {originalBmpTime,3}ms; Resize: {resizeImageTime,3}ms; Matrix: {imageMatrixTime}ms");
 
             // Get mean gray
             grayMean = graySum / height / width;

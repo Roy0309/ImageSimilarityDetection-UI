@@ -9,6 +9,8 @@ namespace SimilarImages
 {
     public partial class FormMain
     {
+        private string[] currentImagePathPair = new string[2];
+
         private void lvw_Result_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvw_Result.SelectedItems.Count < 1 ||
@@ -16,45 +18,45 @@ namespace SimilarImages
             { return; }
 
             // Dispose previous images
-            pictureBox1.Image?.Dispose();
-            pictureBox2.Image?.Dispose();
+            pic_Image1.Image?.Dispose();
+            pic_Image2.Image?.Dispose();
 
             // Show images
-            var selectedTuple = tuples[lvw_Result.SelectedIndices[0]];
+            var selectedTuple = similarityTuples[lvw_Result.SelectedIndices[0]];
             if (File.Exists(selectedTuple.Item1))
             {
-                pictureBox1.Image = new Bitmap(selectedTuple.Item1);
+                pic_Image1.Image = new Bitmap(selectedTuple.Item1);
                 lb_Image1.Text = selectedTuple.Item1.Substring(selectedTuple.Item1.LastIndexOf('\\') + 1);
-                lb_Image1.Tag = selectedTuple.Item1;
-                lb_Resolution1.Text = $"{pictureBox1.Image.Width}*{pictureBox1.Image.Height}";
+                currentImagePathPair[0] = selectedTuple.Item1;
+                lb_Resolution1.Text = $"{pic_Image1.Image.Width}*{pic_Image1.Image.Height}";
             }
             else
             {
-                pictureBox1.Image = null;
+                pic_Image1.Image = null;
                 lb_Image1.Text = Message.Deleted;
-                lb_Image1.Tag = null;
+                currentImagePathPair[0] = null;
                 lb_Resolution1.Text = null;
             }
 
             if (File.Exists(selectedTuple.Item2))
             {
-                pictureBox2.Image = new Bitmap(selectedTuple.Item2);
+                pic_Image2.Image = new Bitmap(selectedTuple.Item2);
                 lb_Image2.Text = selectedTuple.Item2.Substring(selectedTuple.Item2.LastIndexOf('\\') + 1);
-                lb_Image2.Tag = selectedTuple.Item2;
-                lb_Resolution2.Text = $"{pictureBox2.Image.Width}*{pictureBox2.Image.Height}";
+                currentImagePathPair[1] = selectedTuple.Item2;
+                lb_Resolution2.Text = $"{pic_Image2.Image.Width}*{pic_Image2.Image.Height}";
             }
             else
             {
-                pictureBox2.Image = null;
+                pic_Image2.Image = null;
                 lb_Image2.Text = Message.Deleted;
-                lb_Image2.Tag = null;
+                currentImagePathPair[1] = null;
                 lb_Resolution2.Text = null;
             }
 
             // Compare resolution
-            if (pictureBox1.Image != null && pictureBox2.Image != null &&
-                pictureBox1.Image.Width * pictureBox1.Image.Height >=
-                pictureBox2.Image.Width * pictureBox2.Image.Height)
+            if (pic_Image1.Image != null && pic_Image2.Image != null &&
+                pic_Image1.Image.Width * pic_Image1.Image.Height >=
+                pic_Image2.Image.Width * pic_Image2.Image.Height)
             {
                 lb_Resolution1.ForeColor = Color.Green;
                 lb_Resolution2.ForeColor = Color.Black;
@@ -68,39 +70,39 @@ namespace SimilarImages
 
         private void lb_Image1_MouseHover(object sender, EventArgs e)
         {
-            if (lb_Image1.Tag != null)
+            if (currentImagePathPair[0] != null)
             {
-                toolTipMisc.SetToolTip((Control)sender, lb_Image1.Tag.ToString());
+                tip_Misc.SetToolTip((Control)sender, currentImagePathPair[0]);
             }
         }
 
         private void lb_Image2_MouseHover(object sender, EventArgs e)
         {
-            if (lb_Image2.Tag != null)
+            if (currentImagePathPair[1] != null)
             {
-                toolTipMisc.SetToolTip((Control)sender, lb_Image2.Tag.ToString());
+                tip_Misc.SetToolTip((Control)sender, currentImagePathPair[1]);
             }
         }
 
         private void btn_Open1_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
+            if (pic_Image1.Image != null && currentImagePathPair[0] != null)
             {
-                Process.Start(lb_Image1.Tag.ToString());
+                Process.Start(currentImagePathPair[0]);
             }
         }
 
         private void btn_Open2_Click(object sender, EventArgs e)
         {
-            if (pictureBox2.Image != null)
+            if (pic_Image2.Image != null && currentImagePathPair[1] != null)
             {
-                Process.Start(lb_Image2.Tag.ToString());
+                Process.Start(currentImagePathPair[1]);
             }
         }
 
         private void btn_Delete1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (DeleteImage(pictureBox1, lb_Image1, e.Button == MouseButtons.Right))
+            if (DeleteImage(pic_Image1, lb_Image1, currentImagePathPair[0], e.Button == MouseButtons.Right))
             {
                 UpdateSelectedIndex();
             }
@@ -108,13 +110,13 @@ namespace SimilarImages
 
         private void btn_Delete2_MouseDown(object sender, MouseEventArgs e)
         {
-            if (DeleteImage(pictureBox2, lb_Image2, e.Button == MouseButtons.Right))
+            if (DeleteImage(pic_Image2, lb_Image2, currentImagePathPair[1], e.Button == MouseButtons.Right))
             {
                 UpdateSelectedIndex();
             }
         }
 
-        private bool DeleteImage(PictureBox pictureBox, Label label, bool force)
+        private bool DeleteImage(PictureBox pictureBox, Label label, string imagePath, bool force)
         {
             if (pictureBox.Image == null) { return false; }
 
@@ -131,8 +133,7 @@ namespace SimilarImages
             {
                 pictureBox.Image.Dispose();
                 pictureBox.Image = null;
-                FileSystem.DeleteFile(label.Tag.ToString(),
-                    UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                FileSystem.DeleteFile(imagePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
                 label.Text = Message.Deleted;
                 return true;
             }
@@ -142,31 +143,12 @@ namespace SimilarImages
         private void UpdateSelectedIndex()
         {
             // Unselect current
-            int currentSelectedIndex = lvw_Result.SelectedIndices[0];
-            lvw_Result.Items[currentSelectedIndex].Selected = false;
-
+            int currentIndex = lvw_Result.SelectedIndices[0];
+            lvw_Result.Items[currentIndex].Selected = false;
             // Select new
-            if (currentSelectedIndex < lvw_Result.Items.Count - 1)
-            {
-                lvw_Result.Items[currentSelectedIndex + 1].Selected = true;
-            }
-            else
-            {
-                lvw_Result.Items[0].Selected = true;
-            }
-
+            lvw_Result.Items[currentIndex < lvw_Result.Items.Count - 1 ? currentIndex + 1 : 0].Selected = true;
             // Scroll to new
             lvw_Result.EnsureVisible(lvw_Result.SelectedIndices[0]);
-        }
-
-        private void btn_Delete1_MouseHover(object sender, EventArgs e)
-        {
-            toolTipMisc.SetToolTip((Control)sender, Message.DeleteHelp);
-        }
-
-        private void btn_Delete2_MouseHover(object sender, EventArgs e)
-        {
-            toolTipMisc.SetToolTip((Control)sender, Message.DeleteHelp);
         }
     }
 }

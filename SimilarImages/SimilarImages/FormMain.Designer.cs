@@ -35,6 +35,8 @@
             this.tb_Directory = new System.Windows.Forms.TextBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.pnl_Config = new System.Windows.Forms.Panel();
+            this.lb_Similarity = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tkb_Threshold = new System.Windows.Forms.TrackBar();
             this.tkb_Precision = new System.Windows.Forms.TrackBar();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -45,11 +47,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb_Count = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lvw_Result = new System.Windows.Forms.ListView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pic_Image1 = new System.Windows.Forms.PictureBox();
+            this.pic_Image2 = new System.Windows.Forms.PictureBox();
             this.lb_Image1 = new System.Windows.Forms.Label();
             this.lb_Image2 = new System.Windows.Forms.Label();
             this.btn_Delete1 = new System.Windows.Forms.Button();
@@ -63,14 +63,14 @@
             this.lb_Resolution1 = new System.Windows.Forms.Label();
             this.bgw_Calculate = new System.ComponentModel.BackgroundWorker();
             this.pnl_List = new System.Windows.Forms.Panel();
-            this.toolTipHelp = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipMisc = new System.Windows.Forms.ToolTip(this.components);
+            this.tip_Help = new System.Windows.Forms.ToolTip(this.components);
+            this.tip_Misc = new System.Windows.Forms.ToolTip(this.components);
             columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnl_Config.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Threshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Precision)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image2)).BeginInit();
             this.pnl_Main.SuspendLayout();
             this.pnl_Image2.SuspendLayout();
             this.pnl_Image1.SuspendLayout();
@@ -107,6 +107,8 @@
             // pnl_Config
             // 
             this.pnl_Config.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_Config.Controls.Add(this.lb_Similarity);
+            this.pnl_Config.Controls.Add(this.label3);
             this.pnl_Config.Controls.Add(this.tkb_Threshold);
             this.pnl_Config.Controls.Add(this.tkb_Precision);
             this.pnl_Config.Controls.Add(this.progressBar);
@@ -117,13 +119,23 @@
             this.pnl_Config.Controls.Add(this.label7);
             this.pnl_Config.Controls.Add(this.label6);
             this.pnl_Config.Controls.Add(this.label5);
-            this.pnl_Config.Controls.Add(this.lb_Count);
-            this.pnl_Config.Controls.Add(this.label4);
             this.pnl_Config.Controls.Add(this.label1);
             this.pnl_Config.Controls.Add(this.btn_Clear);
             this.pnl_Config.Controls.Add(this.tb_Directory);
             resources.ApplyResources(this.pnl_Config, "pnl_Config");
             this.pnl_Config.Name = "pnl_Config";
+            // 
+            // lb_Similarity
+            // 
+            resources.ApplyResources(this.lb_Similarity, "lb_Similarity");
+            this.lb_Similarity.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lb_Similarity.Name = "lb_Similarity";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label3.Name = "label3";
             // 
             // tkb_Threshold
             // 
@@ -133,7 +145,6 @@
             this.tkb_Threshold.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tkb_Threshold.Value = 80;
             this.tkb_Threshold.ValueChanged += new System.EventHandler(this.tkb_Threshold_ValueChanged);
-            this.tkb_Threshold.MouseHover += new System.EventHandler(this.tkb_Threshold_MouseHover);
             // 
             // tkb_Precision
             // 
@@ -144,7 +155,6 @@
             this.tkb_Precision.TickStyle = System.Windows.Forms.TickStyle.None;
             this.tkb_Precision.Value = 20;
             this.tkb_Precision.ValueChanged += new System.EventHandler(this.tkb_Precision_ValueChanged);
-            this.tkb_Precision.MouseHover += new System.EventHandler(this.tkb_Precision_MouseHover);
             // 
             // progressBar
             // 
@@ -175,7 +185,6 @@
             resources.ApplyResources(this.cmb_Interpolation, "cmb_Interpolation");
             this.cmb_Interpolation.Name = "cmb_Interpolation";
             this.cmb_Interpolation.SelectedIndexChanged += new System.EventHandler(this.cmb_Interpolation_SelectedIndexChanged);
-            this.cmb_Interpolation.MouseHover += new System.EventHandler(this.cmb_Interpolation_MouseHover);
             // 
             // label2
             // 
@@ -193,7 +202,6 @@
             resources.ApplyResources(this.cmb_Algorithm, "cmb_Algorithm");
             this.cmb_Algorithm.Name = "cmb_Algorithm";
             this.cmb_Algorithm.SelectedIndexChanged += new System.EventHandler(this.cmb_Algorithm_SelectedIndexChanged);
-            this.cmb_Algorithm.MouseHover += new System.EventHandler(this.cmb_Algorithm_MouseHover);
             // 
             // label7
             // 
@@ -210,16 +218,6 @@
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // lb_Count
-            // 
-            resources.ApplyResources(this.lb_Count, "lb_Count");
-            this.lb_Count.Name = "lb_Count";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
             // lvw_Result
             // 
             this.lvw_Result.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -234,19 +232,19 @@
             this.lvw_Result.View = System.Windows.Forms.View.Details;
             this.lvw_Result.SelectedIndexChanged += new System.EventHandler(this.lvw_Result_SelectedIndexChanged);
             // 
-            // pictureBox1
+            // pic_Image1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(this.pic_Image1, "pic_Image1");
+            this.pic_Image1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_Image1.Name = "pic_Image1";
+            this.pic_Image1.TabStop = false;
             // 
-            // pictureBox2
+            // pic_Image2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
+            resources.ApplyResources(this.pic_Image2, "pic_Image2");
+            this.pic_Image2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_Image2.Name = "pic_Image2";
+            this.pic_Image2.TabStop = false;
             // 
             // lb_Image1
             // 
@@ -271,7 +269,6 @@
             this.btn_Delete1.Name = "btn_Delete1";
             this.btn_Delete1.UseVisualStyleBackColor = false;
             this.btn_Delete1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Delete1_MouseDown);
-            this.btn_Delete1.MouseHover += new System.EventHandler(this.btn_Delete1_MouseHover);
             // 
             // btn_Delete2
             // 
@@ -282,7 +279,6 @@
             this.btn_Delete2.Name = "btn_Delete2";
             this.btn_Delete2.UseVisualStyleBackColor = false;
             this.btn_Delete2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Delete2_MouseDown);
-            this.btn_Delete2.MouseHover += new System.EventHandler(this.btn_Delete2_MouseHover);
             // 
             // pnl_Main
             // 
@@ -298,7 +294,7 @@
             // 
             this.pnl_Image2.Controls.Add(this.lb_Image2);
             this.pnl_Image2.Controls.Add(this.btn_Open2);
-            this.pnl_Image2.Controls.Add(this.pictureBox2);
+            this.pnl_Image2.Controls.Add(this.pic_Image2);
             this.pnl_Image2.Controls.Add(this.btn_Delete2);
             resources.ApplyResources(this.pnl_Image2, "pnl_Image2");
             this.pnl_Image2.Name = "pnl_Image2";
@@ -315,7 +311,7 @@
             // 
             // pnl_Image1
             // 
-            this.pnl_Image1.Controls.Add(this.pictureBox1);
+            this.pnl_Image1.Controls.Add(this.pic_Image1);
             this.pnl_Image1.Controls.Add(this.btn_Open1);
             this.pnl_Image1.Controls.Add(this.btn_Delete1);
             this.pnl_Image1.Controls.Add(this.lb_Image1);
@@ -356,13 +352,13 @@
             resources.ApplyResources(this.pnl_List, "pnl_List");
             this.pnl_List.Name = "pnl_List";
             // 
-            // toolTip1
+            // tip_Help
             // 
-            this.toolTipHelp.AutoPopDelay = 8000;
-            this.toolTipHelp.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.toolTipHelp.InitialDelay = 500;
-            this.toolTipHelp.ReshowDelay = 100;
-            this.toolTipHelp.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tip_Help.AutoPopDelay = 8000;
+            this.tip_Help.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tip_Help.InitialDelay = 500;
+            this.tip_Help.ReshowDelay = 100;
+            this.tip_Help.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // FormMain
             // 
@@ -376,16 +372,16 @@
             this.DoubleBuffered = true;
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             this.pnl_Config.ResumeLayout(false);
             this.pnl_Config.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Threshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkb_Precision)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Image2)).EndInit();
             this.pnl_Main.ResumeLayout(false);
             this.pnl_Image2.ResumeLayout(false);
             this.pnl_Image1.ResumeLayout(false);
@@ -400,15 +396,13 @@
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Panel pnl_Config;
         private System.Windows.Forms.ListView lvw_Result;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pic_Image1;
+        private System.Windows.Forms.PictureBox pic_Image2;
         private System.Windows.Forms.Label lb_Image1;
         private System.Windows.Forms.Label lb_Image2;
         private System.Windows.Forms.Button btn_Delete1;
         private System.Windows.Forms.Button btn_Delete2;
         private System.Windows.Forms.Panel pnl_Main;
-        private System.Windows.Forms.Label lb_Count;
-        private System.Windows.Forms.Label label4;
         private System.ComponentModel.BackgroundWorker bgw_Calculate;
         private System.Windows.Forms.Button btn_Process;
         private System.Windows.Forms.ComboBox cmb_Algorithm;
@@ -423,12 +417,14 @@
         private System.Windows.Forms.Label lb_Resolution1;
         private System.Windows.Forms.ComboBox cmb_Interpolation;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolTip toolTipHelp;
-        private System.Windows.Forms.ToolTip toolTipMisc;
+        private System.Windows.Forms.ToolTip tip_Help;
+        private System.Windows.Forms.ToolTip tip_Misc;
         private System.Windows.Forms.Panel pnl_Image1;
         private System.Windows.Forms.Panel pnl_Image2;
         private System.Windows.Forms.TrackBar tkb_Precision;
         private System.Windows.Forms.TrackBar tkb_Threshold;
+        private System.Windows.Forms.Label lb_Similarity;
+        private System.Windows.Forms.Label label3;
     }
 }
 

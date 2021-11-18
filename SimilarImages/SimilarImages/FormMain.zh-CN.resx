@@ -124,8 +124,26 @@
   <data name="label1.Text" xml:space="preserve">
     <value>图片目录</value>
   </data>
+  <data name="lb_Similarity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>699, 41</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>638, 41</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>相似占比</value>
+  </data>
   <data name="tkb_Threshold.Location" type="System.Drawing.Point, System.Drawing">
     <value>578, 38</value>
+  </data>
+  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 27</value>
+  </data>
+  <data name="btn_Process.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 27</value>
   </data>
   <data name="btn_Process.Text" xml:space="preserve">
     <value>运行</value>
@@ -193,11 +211,11 @@
   <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 15</value>
+  <data name="pnl_Config.Size" type="System.Drawing.Size, System.Drawing">
+    <value>737, 68</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>有效图片数：</value>
+  <data name="pic_Image2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 475</value>
   </data>
   <data name="lb_Image1.Text" xml:space="preserve">
     <value>图片 1</value>
@@ -214,8 +232,17 @@
   <data name="btn_Open2.Text" xml:space="preserve">
     <value>打开</value>
   </data>
+  <data name="pnl_Image2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 523</value>
+  </data>
   <data name="btn_Open1.Text" xml:space="preserve">
     <value>打开</value>
+  </data>
+  <data name="pnl_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>578, 523</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>757, 606</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2101,5 +2128,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AACAHwAAgA8AAJ/PAACYAwAAkAEAAJH5
         AACR+QAAkfkAAIH5AACB+QAAwfkAAPH5AADwAQAA+AEAAP//AAA=
 </value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>773, 645</value>
   </data>
 </root>

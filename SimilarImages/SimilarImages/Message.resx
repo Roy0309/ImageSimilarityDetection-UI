@@ -118,13 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlgorithmHelp" xml:space="preserve">
-    <value>The algorithm when calculating image hashes.</value>
+    <value>The algorithm used in image hash calculation.</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
-  </data>
-  <data name="CurrentValue" xml:space="preserve">
-    <value>Current Value: </value>
   </data>
   <data name="Deleted" xml:space="preserve">
     <value>Deleted</value>
@@ -154,7 +151,7 @@
     <value>Image 2</value>
   </data>
   <data name="InterpolationHelp" xml:space="preserve">
-    <value>The interpolation mode when resizing images.</value>
+    <value>The interpolation mode used in image resizing.</value>
   </data>
   <data name="NoFolder" xml:space="preserve">
     <value>Please drag &amp; drop folder(s) to this form.</value>
@@ -165,21 +162,22 @@
   <data name="Notice" xml:space="preserve">
     <value>Notice</value>
   </data>
-  <data name="PresionHelp" xml:space="preserve">
-    <value>
-Usage: When sampling, resize images to "Precision * Precision".
+  <data name="PrecisionHelp" xml:space="preserve">
+    <value>Usage: When sampling, resize images to "Precision * Precision".
 Notice: Don't set it too large to run out of memory.</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>Result</value>
   </data>
   <data name="ThresholdHelp" xml:space="preserve">
-    <value>%
-Range: 0-99%
+    <value>Range: 0-99%
 Usage: Return results greater than the threshold.
 Notice: Don't set a low threshold when processing mass images as the operation will take too long.</value>
   </data>
   <data name="DeleteHelp" xml:space="preserve">
     <value>Right click to delete directly.</value>
+  </data>
+  <data name="SimilarityHelp" xml:space="preserve">
+    <value>Similar/Valid: </value>
   </data>
 </root>

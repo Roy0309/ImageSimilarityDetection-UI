@@ -153,7 +153,7 @@
     <value>61, 6</value>
   </data>
   <data name="tb_Directory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>411, 21</value>
+    <value>538, 21</value>
   </data>
   <data name="tb_Directory.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -181,7 +181,7 @@
     <value>Microsoft Sans Serif, 8pt</value>
   </data>
   <data name="btn_Clear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 6</value>
+    <value>605, 6</value>
   </data>
   <data name="btn_Clear.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 21</value>
@@ -203,6 +203,63 @@
   </data>
   <data name="&gt;&gt;btn_Clear.ZOrder" xml:space="preserve">
     <value>13</value>
+  </data>
+  <data name="lb_Similarity.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_Similarity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 41</value>
+  </data>
+  <data name="lb_Similarity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 15</value>
+  </data>
+  <data name="lb_Similarity.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lb_Similarity.Text" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="&gt;&gt;lb_Similarity.Name" xml:space="preserve">
+    <value>lb_Similarity</value>
+  </data>
+  <data name="&gt;&gt;lb_Similarity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_Similarity.Parent" xml:space="preserve">
+    <value>pnl_Config</value>
+  </data>
+  <data name="&gt;&gt;lb_Similarity.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 41</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Portion:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>pnl_Config</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="tkb_Threshold.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -229,7 +286,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;tkb_Threshold.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="tkb_Precision.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -253,16 +310,16 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;tkb_Precision.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 38</value>
+    <value>637, 3</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 23</value>
+    <value>94, 27</value>
   </data>
   <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -280,16 +337,16 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btn_Process.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="btn_Process.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 3</value>
+    <value>637, 3</value>
   </data>
   <data name="btn_Process.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 27</value>
+    <value>94, 27</value>
   </data>
   <data name="btn_Process.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -307,7 +364,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;btn_Process.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="cmb_Interpolation.Items" xml:space="preserve">
     <value>Default</value>
@@ -340,7 +397,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;cmb_Interpolation.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>123, 41</value>
@@ -367,7 +424,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="cmb_Algorithm.Items" xml:space="preserve">
     <value>Difference</value>
@@ -397,7 +454,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;cmb_Algorithm.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 41</value>
@@ -421,7 +478,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>481, 41</value>
@@ -445,7 +502,7 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>-3, 41</value>
@@ -469,57 +526,6 @@
     <value>pnl_Config</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lb_Count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 9</value>
-  </data>
-  <data name="lb_Count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 15</value>
-  </data>
-  <data name="lb_Count.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lb_Count.Text" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="lb_Count.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.Name" xml:space="preserve">
-    <value>lb_Count</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.Parent" xml:space="preserve">
-    <value>pnl_Config</value>
-  </data>
-  <data name="&gt;&gt;lb_Count.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>510, 9</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 15</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Valid images:</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>pnl_Config</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="pnl_Config.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -570,58 +576,58 @@
   <data name="&gt;&gt;lvw_Result.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="pic_Image1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="pic_Image1.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 0</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pic_Image1.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 475</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+  <data name="pic_Image1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="pic_Image1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="&gt;&gt;pic_Image1.Name" xml:space="preserve">
+    <value>pic_Image1</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image1.Parent" xml:space="preserve">
     <value>pnl_Image1</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pictureBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="pic_Image2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="pic_Image2.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 0</value>
   </data>
-  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="pic_Image2.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 475</value>
   </data>
-  <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+  <data name="pic_Image2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="pic_Image2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
+  <data name="&gt;&gt;pic_Image2.Name" xml:space="preserve">
+    <value>pic_Image2</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image2.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image2.Parent" xml:space="preserve">
     <value>pnl_Image2</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pic_Image2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="lb_Image1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -738,77 +744,23 @@
   <data name="&gt;&gt;btn_Delete2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;pnl_Image2.Name" xml:space="preserve">
-    <value>pnl_Image2</value>
+  <data name="btn_Open2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;pnl_Image2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_Open2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="&gt;&gt;pnl_Image2.Parent" xml:space="preserve">
-    <value>pnl_Main</value>
+  <data name="btn_Open2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 496</value>
   </data>
-  <data name="&gt;&gt;pnl_Image2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btn_Open2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 27</value>
   </data>
-  <data name="&gt;&gt;pnl_Image1.Name" xml:space="preserve">
-    <value>pnl_Image1</value>
+  <data name="btn_Open2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;pnl_Image1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnl_Image1.Parent" xml:space="preserve">
-    <value>pnl_Main</value>
-  </data>
-  <data name="&gt;&gt;pnl_Image1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Name" xml:space="preserve">
-    <value>lb_Resolution2</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.Parent" xml:space="preserve">
-    <value>pnl_Main</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Name" xml:space="preserve">
-    <value>lb_Resolution1</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.Parent" xml:space="preserve">
-    <value>pnl_Main</value>
-  </data>
-  <data name="&gt;&gt;lb_Resolution1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="pnl_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="pnl_Main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 73</value>
-  </data>
-  <data name="pnl_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 523</value>
-  </data>
-  <data name="pnl_Main.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;pnl_Main.Name" xml:space="preserve">
-    <value>pnl_Main</value>
-  </data>
-  <data name="&gt;&gt;pnl_Main.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnl_Main.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnl_Main.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btn_Open2.Text" xml:space="preserve">
+    <value>Open</value>
   </data>
   <data name="&gt;&gt;btn_Open2.Name" xml:space="preserve">
     <value>btn_Open2</value>
@@ -846,35 +798,23 @@
   <data name="&gt;&gt;pnl_Image2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btn_Open2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btn_Open1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="btn_Open2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btn_Open1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btn_Open2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_Open1.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 496</value>
   </data>
-  <data name="btn_Open2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_Open1.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 27</value>
   </data>
-  <data name="btn_Open2.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_Open1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="btn_Open2.Text" xml:space="preserve">
+  <data name="btn_Open1.Text" xml:space="preserve">
     <value>Open</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Name" xml:space="preserve">
-    <value>btn_Open2</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.Parent" xml:space="preserve">
-    <value>pnl_Image2</value>
-  </data>
-  <data name="&gt;&gt;btn_Open2.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;btn_Open1.Name" xml:space="preserve">
     <value>btn_Open1</value>
@@ -910,36 +850,6 @@
     <value>pnl_Main</value>
   </data>
   <data name="&gt;&gt;pnl_Image1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_Open1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btn_Open1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_Open1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 496</value>
-  </data>
-  <data name="btn_Open1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 27</value>
-  </data>
-  <data name="btn_Open1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="btn_Open1.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.Name" xml:space="preserve">
-    <value>btn_Open1</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.Parent" xml:space="preserve">
-    <value>pnl_Image1</value>
-  </data>
-  <data name="&gt;&gt;btn_Open1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="lb_Resolution2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -996,8 +906,32 @@
   <data name="&gt;&gt;lb_Resolution1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="pnl_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnl_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 73</value>
+  </data>
+  <data name="pnl_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 523</value>
+  </data>
+  <data name="pnl_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;pnl_Main.Name" xml:space="preserve">
+    <value>pnl_Main</value>
+  </data>
+  <data name="&gt;&gt;pnl_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnl_Main.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnl_Main.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="bgw_Calculate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>210, 17</value>
   </metadata>
   <data name="pnl_List.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -1023,11 +957,11 @@
   <data name="&gt;&gt;pnl_List.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 17</value>
+  <metadata name="tip_Help.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>251, 17</value>
+  <metadata name="tip_Misc.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>114, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2953,16 +2887,16 @@
   <data name="&gt;&gt;bgw_Calculate.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
+  <data name="&gt;&gt;tip_Help.Name" xml:space="preserve">
+    <value>tip_Help</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tip_Help.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolTip2.Name" xml:space="preserve">
-    <value>toolTip2</value>
+  <data name="&gt;&gt;tip_Misc.Name" xml:space="preserve">
+    <value>tip_Misc</value>
   </data>
-  <data name="&gt;&gt;toolTip2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tip_Misc.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

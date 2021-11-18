@@ -9,11 +9,14 @@ namespace SimilarImages
 {
     public partial class FormMain
     {
+        private List<Tuple<string, string, double>> similarityTuples = null;
+        private Stopwatch watch = new Stopwatch();
+
         private void btn_Process_Click(object sender, EventArgs e)
         {
             // Check config
-            precision = tkb_Precision.Value;
-            threshold = tkb_Threshold.Value;
+            hashConfig.Precision = tkb_Precision.Value;
+            hashConfig.Threshold = tkb_Threshold.Value;
             if (folderPathes.Count == 0)
             {
                 MessageBox.Show(Message.NoFolder, Message.Notice,
@@ -40,61 +43,72 @@ namespace SimilarImages
         {
             lvw_Result.Items.Clear();
 
-            pictureBox1.Image?.Dispose();
-            pictureBox2.Image?.Dispose();
-            pictureBox1.Image = null;
-            pictureBox2.Image = null;
+            pic_Image1.Image?.Dispose();
+            pic_Image2.Image?.Dispose();
+            pic_Image1.Image = null;
+            pic_Image2.Image = null;
             lb_Image1.Text = Message.Image1;
             lb_Image2.Text = Message.Image2;
-            lb_Image1.Tag = null;
-            lb_Image2.Tag = null;
             lb_Resolution1.Text = null;
             lb_Resolution2.Text = null;
+
+            currentImagePathPair[0] = null;
+            currentImagePathPair[1] = null;
         }
 
         private void bgw_Calculate_DoWork(object sender, DoWorkEventArgs e)
         {
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
+            watch.Restart();
 
-            tuples = null;
-            tuples = ImageHash.GetSimilarity(folderPathes, out int count,
-                precision, interpolationMode, hashEnum, threshold);
-            lb_Count.Invoke((Action)(() => { lb_Count.Text = count.ToString(); }));
+            similarityTuples = null;
+            similarityTuples = ImageHash.GetSimilarity(ref folderPathes, hashConfig, 
+                out int validCount, out int similarCount);
+            lb_Similarity.Invoke((Action)(()=> {
+                lb_Similarity.Text = $"{(double)similarCount / validCount:P0}";
+                tip_Misc.SetToolTip(lb_Similarity, $"{Message.SimilarityHelp} {similarCount}/{validCount}");
+            }));
 
             watch.Stop();
-            Debug.WriteLine("GetSimilarity ElapsedTime: " + watch.ElapsedMilliseconds + " ms");
+            Debug.WriteLine($"GetSimilarity: {watch.ElapsedMilliseconds}ms");
         }
 
         private void bgw_Calculate_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             // No result 
-            if (tuples == null || tuples.Count == 0)
+            if (similarityTuples == null || similarityTuples.Count == 0)
             {
                 lvw_Result.Items.Add(Message.NoResult);
                 return;
             }
 
+            lvw_Result.BeginInvoke(new UpdateListViewDelegate(UpdateListView));
+        }
+
+        private delegate void UpdateListViewDelegate();
+
+        private void UpdateListView()
+        {
+            watch.Restart();
+
             // Generate result list
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            List<ListViewItem> items = new List<ListViewItem>(tuples.Count);
-            for (int i = 0; i < tuples.Count; i++)
+            List<ListViewItem> items = new List<ListViewItem>(similarityTuples.Count);
+            for (int i = 0; i < similarityTuples.Count; i++)
             {
-                items.Add(new ListViewItem($"{Message.Result} {i + 1} - {tuples[i].Item3:P1}"));
+                items.Add(new ListViewItem($"{Message.Result} {i + 1} - {similarityTuples[i].Item3:P1}"));
             }
+
             lvw_Result.BeginUpdate();
             lvw_Result.Items.AddRange(items.ToArray());
             lvw_Result.EndUpdate();
+
             watch.Stop();
-            Debug.WriteLine("UpdateListView ElapsedTime: " + watch.ElapsedMilliseconds + " ms");
+            Debug.WriteLine($"UpdateListView: {watch.ElapsedMilliseconds}ms");
 
             // Select the first one
             if (lvw_Result.Items.Count > 0)
             {
                 lvw_Result.Items[0].Selected = true;
             }
-            lvw_Result.Select();
 
             progressBar.Visible = false;
             btn_Process.Enabled = true;

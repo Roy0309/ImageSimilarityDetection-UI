@@ -61,7 +61,7 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 The algorithm when calculating image hashes. 的本地化字符串。
+        ///   查找类似 The algorithm used in image hash calculation. 的本地化字符串。
         /// </summary>
         internal static string AlgorithmHelp {
             get {
@@ -75,15 +75,6 @@ namespace SimilarImages {
         internal static string Confirm {
             get {
                 return ResourceManager.GetString("Confirm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Current Value:  的本地化字符串。
-        /// </summary>
-        internal static string CurrentValue {
-            get {
-                return ResourceManager.GetString("CurrentValue", resourceCulture);
             }
         }
         
@@ -178,7 +169,7 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 The interpolation mode when resizing images. 的本地化字符串。
+        ///   查找类似 The interpolation mode used in image resizing. 的本地化字符串。
         /// </summary>
         internal static string InterpolationHelp {
             get {
@@ -214,13 +205,12 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 
-        ///Usage: When sampling, resize images to &quot;Precision * Precision&quot;.
+        ///   查找类似 Usage: When sampling, resize images to &quot;Precision * Precision&quot;.
         ///Notice: Don&apos;t set it too large to run out of memory. 的本地化字符串。
         /// </summary>
-        internal static string PresionHelp {
+        internal static string PrecisionHelp {
             get {
-                return ResourceManager.GetString("PresionHelp", resourceCulture);
+                return ResourceManager.GetString("PrecisionHelp", resourceCulture);
             }
         }
         
@@ -234,8 +224,16 @@ namespace SimilarImages {
         }
         
         /// <summary>
-        ///   查找类似 %
-        ///Range: 0-99%
+        ///   查找类似 Similar/Valid:  的本地化字符串。
+        /// </summary>
+        internal static string SimilarityHelp {
+            get {
+                return ResourceManager.GetString("SimilarityHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Range: 0-99%
         ///Usage: Return results greater than the threshold.
         ///Notice: Don&apos;t set a low threshold when processing mass images as the operation will take too long. 的本地化字符串。
         /// </summary>
